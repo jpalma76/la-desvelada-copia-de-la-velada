@@ -1,0 +1,51 @@
+---
+import X from "../assets/svg/x.svg";
+import Instagram from "../assets/svg/instagram.svg";
+import Github from "../assets/svg/github.svg";
+
+---
+
+<footer 
+  class="relative w-screen h-[300px] bg-center pb-32">
+  <div
+    class="absolute inset-0 bg-cover bg-no-repeat bg-bottom bg-[url('./images/footer.webp')] 
+    [mask-image:linear-gradient(transparent, black_50%)]"
+  >
+  </div>
+  <div
+    class="relative h-full flex flex-col justify-center items-center text-[#2a1f26]"
+  >
+    <div class="foter-content">
+      <p>© 2025 La Velada del Año V - Todos los derechos reservados.</p>
+    </div>
+    <ul class="flex flex-row gap-5 justify-center items-center mt-8">
+      <li>
+        <a
+          class="size-6 hover:scale-105 hover:opacity-70 transition"
+          href="https://x.com/IbaiLlanos"
+          target="_blank"
+        >
+          <X class="size-6" />
+        </a>
+      </li>
+      <li>
+        <a
+          class="size-6 hover:scale-105 hover:opacity-70 transition"
+          href="https://www.instagram.com/ibai/"
+          target="_blank"
+        >
+          <Instagram class="size-7" />
+        </a>
+      </li>
+      <li>
+        <a
+          class="size-6 hover:scale-105 hover:opacity-70 transition"
+          href="https://github.com/jpalma76/la-desvelada-copia-de-la-velada.git"
+          target="_blank"
+        >
+          <Github class="size-6" />
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>

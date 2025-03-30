@@ -1,0 +1,35 @@
+---
+import { SPONSORS } from '../consts/sponsors.ts';
+
+const firstRow = SPONSORS.slice(0, 4);
+const secondRow = SPONSORS.slice(5);
+---
+
+<section id="sponsors">
+    <div class="grid">
+        {firstRow.map(({ url, image, name }) => (
+            <a 
+                href={url} 
+                target="_blank" rel="noopener noreferrer"
+            >
+                <img 
+                    src={image.logo} 
+                    alt={name} 
+                    loading="lazy" />
+            </a>
+        ))}
+    </div>
+    <div class="grid">
+        {secondRow.map(({ url, image, name }) => (
+            <a 
+                href={url} 
+                target="_blank" rel="noopener noreferrer"
+            >
+                <img 
+                    src={image.logo} 
+                    alt={name} 
+                    loading="lazy" />
+            </a>
+        ))}
+    </div>
+</section>
