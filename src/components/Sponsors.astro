@@ -1,0 +1,35 @@
+---
+import { SPONSORS } from "../consts/sponsors";
+const firstRow = SPONSORS.slice(0,5)
+const secondRow = SPONSORS.slice(5)
+---
+
+<section class="mx-auto max-w-xl flex flex-col gap-y-6 justify-center items-center" id="sponsors">
+    <h2 class="my-4 text-3xl font-light text-center">Patrocinadores del evento</h2>
+    <div class="w-full px-24 grid grid-cols-5 gap-4">
+        {
+            firstRow.map(({ url,image, name }) => (
+                <a 
+                    href={url}
+                    target="_blank"
+                    class="w-auto h-4 hover:scale-125 transition text-[#2a1f26] flex justify-center items-center"
+                >
+                    <image.logo class="h-4 w-auto" />
+                </a>
+            ))
+        }
+    </div>
+    <div class="w-full px-24 grid grid-cols-5 gap-4">
+        {
+            secondRow.map(({ url,image,name }) => (
+                <a 
+                    href={url}
+                    target="_blank"
+                    class="w-auto h-4 hover:scale-125 transition text-[#2a1f26] flex justify-center items-center"
+                >
+                    <image.logo class="h-full w-auto" />
+                </a>
+            ))
+        }
+    </div>
+</section>
