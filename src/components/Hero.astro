@@ -1,102 +1,65 @@
 ---
 import { FIGHTERS } from "../consts/fighters";
+import BoxerCard from "./BoxerCard.astro";
 
 const firstRowLeft = FIGHTERS.slice(0, 3);
 const firstRowRight = FIGHTERS.slice(3, 6);
 const secondRow = FIGHTERS.slice(6);
 ---
 
-<section class="relative flex min-h-screen w-full m-0 p-0" id="hero">
+<section class="relative flex min-h-screen justify-center w-full px-" id="hero">
+  <div
+    class="bg-[url('/images/hero.webp')] bg-cover bg-center w-full mask-fade-bottom absolute inset-0"
+  >
+  </div>
+  <div class="relative flex flex-col items-center justify-end p-y-8 w-full">
     <div
-        class="bg-[url('/images/hero.webp')] bg-cover bg-center w-full mask-fade-bottom absolute inset-0"
+      id="landing"
+      class="absolute inset-0 flex flex-col items-center justify-center w-full text-center"
     >
-    </div>
-    <div class="relative flex flex-col items-center justify-end p-8 w-full">
-        <div
-            id="landing"
-            class="absolute inset-0 flex flex-col items-center justify-center w-full text-center"
+      <h3
+        class="font-light text-xl text-seashell leading-[100%] animate-fade-in animate-delay-300"
+      >
+        <strong>26</strong> DE<br /><strong>JULIO</strong>
+      </h3>
+      <figure class="relative flex my-8 animate-fade-in">
+        <img
+          class="w-64 h-auto z-40"
+          src="/images/logo.png"
+          alt="La Velada del año V"
+          decoding="async"
+        />
+        <div class="absolute bg-pink-400/70 blur-2xl z-0 size-64 top-0"></div>
+      </figure>
+      <h3
+        class="font-light text-seashell leading-[100%] mt-4 animate-fade-in animate-delay-500"
+      >
+        ESTADIO<br />LA CARTUJA<br /><strong>SEVILLA</strong>
+      </h3>
+      <h3
+        class="font-light text-raisin-black leading-[100%] mt-4 animate-fade-in animate-delay-700"
+      >
+        <a
+          href="https://twitch.tv/ibai"
+          rel="noopener noreferrer"
+          target="_blank"
+          class="inline-block transition hover:scale-125"
         >
-            <h3
-                class="font-light text-xl text-seashell leading-[100%] animate-fade-in animate-delay-300"
-            >
-                <strong>26</strong> DE<br /><strong>JULIO</strong>
-            </h3>
-            <figure class="relative flex my-8 animate-fade-in">
-                <img
-                    class="w-64 h-auto z-40"
-                    src="/images/logo.png"
-                    alt="La Velada del año V"
-                    decoding="async"
-                />
-                <div class="absolute bg-pink-400/70 blur-2xl z-0 size-64 top-0">
-                </div>
-            </figure>
-            <h3
-                class="font-light text-seashell leading-[100%] mt-4 animate-fade-in animate-delay-500"
-            >
-                ESTADIO<br />LA CARTUJA<br /><strong>SEVILLA</strong>
-            </h3>
-            <h3
-                class="font-light text-raisin-black leading-[100%] mt-4 animate-fade-in animate-delay-700"
-            >
-                <a
-                    href="https://twitch.tv/ibai"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    class="inline-block transition hover:scale-125"
-                >
-                    TWITCH.TV<br /><strong>IBAI</strong>
-                </a>
-            </h3>
-        </div>
-        <div class="flex flex-wrap justify-around gap-3 w-full">
-            <div class="w-[300px] flex gap-x-4">
-                {
-                    firstRowLeft.map(({ id, name }) => (
-                        <a
-                            href={`/peleador/${id}`}
-                            class="inline-block transition hover:scale-125 w-[80px] h-auto"
-                        >
-                            <img
-                                src={`/images/fighters/cards/${id}.webp`}
-                                alt={name}
-                            />
-                        </a>
-                    ))
-                }
-            </div>
-
-            <div class="w-[300px] flex gap-x-4">
-                {
-                    firstRowRight.map(({ id, name }) => (
-                        <a
-                            href={`/peleador/${id}`}
-                            class="inline-block transition hover:scale-125 w-[80px] h-auto"
-                        >
-                            <img
-                                src={`/images/fighters/cards/${id}.webp`}
-                                alt={name}
-                                class="w-full h-full"
-                            />
-                        </a>
-                    ))
-                }
-            </div>
-            <div class="flex flex-wrap justify-center gap-3 w-full">
-                {
-                    secondRow.map(({id, name}) => (
-                        <a 
-                            href={`/peleador/${id}`}
-                            class="inline-block transition hover:scale-125 w-[80px] h-auto"
-                        >
-                            <img 
-                                src={`/images/fighters/cards/${id}.webp`} 
-                                alt={name}
-                            />
-                        </a>
-                    ))
-                } 
-            </div>
-        </div>
+          TWITCH.TV<br /><strong>IBAI</strong>
+        </a>
+      </h3>
     </div>
+
+    <div class="flex flex-wrap justify-around gap-y-4 w-full mb-4 z-10">
+      <div class="flex flex-wrap gap-x-4 m-x-auto">
+        {firstRowLeft.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
+      </div>
+      <div class="flex flex-wrap gap-x-4 m-x-auto">
+        {firstRowRight.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
+      </div>
+      <div class="flex flex-wrap justify-center gap-x-4 w-full m-x-auto">
+        {secondRow.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
+      </div>
+    </div>
+  </div>
 </section>
