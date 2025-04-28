@@ -1,0 +1,14 @@
+---
+const { id, name } = Astro.props;
+---
+
+<a
+    href={`/peleador/${id}`}
+    class="w-10 h-auto sm:w-14 md:w-18 lg:w-24 inline-block transition hover:scale-125"
+>
+    <img
+        src={`/images/fighters/cards/${id}.webp`}
+        alt={name}
+        class="aspect-[900/1200] w-full h-full object-cover"
+    />
+</a>
