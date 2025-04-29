@@ -4,6 +4,9 @@ import BoxerCard from "./BoxerCard.astro";
 
 const firstRowLeft = FIGHTERS.slice(0, 3);
 const firstRowRight = FIGHTERS.slice(3, 6);
+
+const SecondRowLeft = FIGHTERS.slice(6, 10);
+const SecondRowRight = FIGHTERS.slice(10);
 const secondRow = FIGHTERS.slice(6);
 ---
 
@@ -37,7 +40,7 @@ const secondRow = FIGHTERS.slice(6);
         ESTADIO<br />LA CARTUJA<br /><strong>SEVILLA</strong>
       </h3>
       <h3
-        class="font-light text-raisin-black leading-[100%] mt-4 animate-fade-in animate-delay-700"
+        class="font-light text-raisin-black leading-[100%] my-6 animate-fade-in animate-delay-700"
       >
         <a
           href="https://twitch.tv/ibai"
@@ -50,15 +53,26 @@ const secondRow = FIGHTERS.slice(6);
       </h3>
     </div>
 
-    <div class="flex flex-wrap justify-around gap-y-4 w-full mb-4 z-10">
+    <div class="flex flex-wrap justify-around w-full mb-6 z-10">
+      <!-- FISRT ROW -->
       <div class="flex flex-wrap gap-x-4 m-x-auto">
         {firstRowLeft.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
       </div>
       <div class="flex flex-wrap gap-x-4 m-x-auto">
         {firstRowRight.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
       </div>
-      <div class="flex flex-wrap justify-center gap-x-4 w-full m-x-auto">
-        {secondRow.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
+      <!-- SECOND ROW -->
+      <div class="flex flex-wrap justify-around gap-x-4 w-[1200px] mb-4 z-10">
+        <div class="flex flex-wrap gap-x-4 m-x-auto">
+          {SecondRowLeft.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
+        </div>
+        <div class="flex flex-wrap gap-x-4 m-x-auto">
+          {
+            SecondRowRight.map(({ id, name }) => (
+              <BoxerCard id={id} name={name} />
+            ))
+          }
+        </div>
       </div>
     </div>
   </div>
