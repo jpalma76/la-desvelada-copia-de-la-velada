@@ -6,7 +6,7 @@ import Sponsors from '../components/Sponsors.astro';
 
 ---
 
-<footer class="relative w-full h-[400px] mb-0">
+<footer class="relative w-full flex flex-col items-center justify-center h-[400px] gap-y-4">
     <div
         class="absolute inset-0 bg-cover bg-bottom bg-[url('./images/footer.webp')] [mask-image:linear-gradient(transparent,black_50%)]"
     >
@@ -15,11 +15,11 @@ import Sponsors from '../components/Sponsors.astro';
     class="relative w-full flex flex-col justify-center gap-y-3 items-center text-[#2a1f26]"
     >
     <Sponsors />
-    <div class="my-4">
-        <p class="flex-wrap w-[250px] md:w-auto text-center">© 2025 La Velada del año V, todos los derechos reservados</p>
+    <div class="mt-4">
+        <p class="flex-wrap w-[250px] md:w-auto gap-y-2 text-center">© 2025 La Velada del año V, todos los derechos reservados</p>
     </div>
 
-        <div class="w-full flex flex-row gap-x-2 justify-center items-center mt-2">
+        <div class="w-full flex flex-row gap-x-2 justify-center items-center">
             <a
                 href="https://x.com/infoLaVelada"
                 target="_blank"
