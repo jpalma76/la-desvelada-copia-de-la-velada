@@ -25,7 +25,7 @@ const secondRow = FIGHTERS.slice(6);
       >
         <strong>26</strong> DE<br /><strong>JULIO</strong>
       </h3>
-      <figure class="relative flex my-8 animate-fade-in">
+      <figure class="relative flex my-5 animate-fade-in">
         <img
           class="w-64 h-auto z-40"
           src="/images/logo.png"
@@ -35,38 +35,38 @@ const secondRow = FIGHTERS.slice(6);
         <div class="absolute bg-pink-400/70 blur-2xl z-0 size-64 top-0"></div>
       </figure>
       <h3
-        class="font-light text-seashell leading-[100%] mt-4 animate-fade-in animate-delay-500"
+        class="font-light text-seashell leading-[100%] mt-2 animate-fade-in animate-delay-500"
       >
         ESTADIO<br />LA CARTUJA<br /><strong>SEVILLA</strong>
       </h3>
       <h3
-        class="font-light text-raisin-black leading-[100%] my-6 animate-fade-in animate-delay-700"
+        class="font-light text-raisin-black leading-[100%] my-4 animate-fade-in animate-delay-700 z-10"
       >
         <a
           href="https://twitch.tv/ibai"
           rel="noopener noreferrer"
           target="_blank"
-          class="inline-block transition hover:scale-125"
+          class="inline-grid transition hover:scale-125"
         >
           TWITCH.TV<br /><strong>IBAI</strong>
         </a>
       </h3>
     </div>
 
-    <div class="flex flex-wrap justify-around w-full gap-y-2 mb-6 z-10">
+    <div class="flex flex-wrap justify-around w-full gap-y-3 mb-6 z-0">
       <!-- FISRT ROW -->
-      <div class="flex flex-wrap gap-x-4 m-x-auto">
+      <div class="flex flex-wrap gap-x-2 md:gap-x-4 m-x-auto">
         {firstRowLeft.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
       </div>
-      <div class="flex flex-wrap gap-x-4 m-x-auto">
+      <div class="flex flex-wrap gap-x-2 md:gap-x-4 m-x-auto">
         {firstRowRight.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
       </div>
       <!-- SECOND ROW -->
       <div class="flex flex-wrap justify-around gap-x-4 w-[1200px] mb-4 z-10">
-        <div class="flex flex-wrap gap-x-4 m-x-auto">
+        <div class="flex flex-wrap gap-x-2 md:gap-x-4 m-x-auto">
           {SecondRowLeft.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
         </div>
-        <div class="flex flex-wrap gap-x-4 m-x-auto">
+        <div class="flex flex-wrap gap-x-2 md:gap-x-4 m-x-auto">
           {
             SecondRowRight.map(({ id, name }) => (
               <BoxerCard id={id} name={name} />
