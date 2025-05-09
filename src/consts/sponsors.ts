@@ -10,7 +10,7 @@ import Maxibon from '../assets/sponsors/Maxibon.svg';
 import Nothing from '../assets/sponsors/Nothing.svg';
 import Revolut from '../assets/sponsors/Revolut.svg';
 import Spotify from '../assets/sponsors/Spotify.svg';
-import Vicio from '../assets/sponsors/vicio.svg';
+import Vicio from '../assets/sponsors/Vicio.svg';
 
 export const SPONSORS: Sponsors[] = [
     {
