@@ -28,7 +28,7 @@ const secondRow = FIGHTERS.slice(6);
       <figure class="relative flex my-5 animate-fade-in">
         <img
           class="w-64 h-auto z-40"
-          src="/images/logo.png"
+          src="/images/logo.webp"
           alt="La Velada del año V"
           fetchpriority="high"
         />
@@ -63,8 +63,8 @@ const secondRow = FIGHTERS.slice(6);
         {
           FIGHTERS.map(({ id, name }) => (
             <img
-              src={`/images/fighters/text/${id}.png`}
-              alt={name}
+              src={`/images/fighters/text/${id}.webp`}
+              alt={"Nombre de " + name}
               decoding="async"
               class="w-auto h-full absolute hidden"
               fetchpriority="low"
@@ -80,7 +80,7 @@ const secondRow = FIGHTERS.slice(6);
           FIGHTERS.map(({ id, name }) => (
             <img
               src={`/images/fighters/big/${id}.webp`}
-              alt={name}
+              alt={"Imagen de " + name}
               decoding="async"
               class="w-auto h-full absolute hidden"
               fetchpriority="low"
