@@ -5,14 +5,14 @@ const secondRow = SPONSORS.slice(5)
 ---
 
 <section class="mx-auto max-w-xl flex flex-col gap-y-6 justify-center items-center mb-4" id="sponsors">
-    <h2 class="mt-4 text-3xl font-light text-center">Patrocinadores del evento</h2>
+    <h2 class="mt-4 text-3xl font-light text-center text-dark-magenta">Patrocinadores del evento</h2>
     <div class="w-full grid grid-cols-5 gap-x-3">
         {
             firstRow.map(({ url,image }) => (
                 <a 
                     href={url}
                     target="_blank"
-                    class="w-auto h-4 hover:scale-125 transition text-[#2a1f26] flex justify-center items-center"
+                    class="w-auto h-4 hover:scale-125 transition text-dark-magenta flex justify-center items-center"
                 >
                     <image.logo class="h-4 w-auto" />
                 </a>
@@ -25,7 +25,7 @@ const secondRow = SPONSORS.slice(5)
                 <a 
                     href={url}
                     target="_blank"
-                    class="w-auto h-4 hover:scale-125 transition text-[#2a1f26] flex justify-center items-center"
+                    class="w-auto h-4 hover:scale-125 transition text-dark-magenta flex justify-center items-center"
                 >
                     <image.logo class="h-full w-auto" />
                 </a>
