@@ -46,7 +46,7 @@ export const SPONSORS: Sponsors[] = [
     {
         id: "grefusa",
         name: "Grefusa",
-        url: "https://www.grefusa.es",
+        url: "https://www.grefusa.com",
         image: {
             logo: Grefusa,
             width: 200,
