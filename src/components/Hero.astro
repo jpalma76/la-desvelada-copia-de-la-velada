@@ -67,6 +67,7 @@ const secondRow = FIGHTERS.slice(6);
               alt={name}
               decoding="async"
               class="w-auto h-full absolute hidden"
+              fetchpriority="low"
             />
           ))
         }
@@ -79,9 +80,10 @@ const secondRow = FIGHTERS.slice(6);
           FIGHTERS.map(({ id, name }) => (
             <img
               src={`/images/fighters/big/${id}.webp`}
-              alt={"Imagen de " + name}
+              alt={name}
               decoding="async"
               class="w-auto h-full absolute hidden"
+              fetchpriority="low"
             />
           ))
         }
