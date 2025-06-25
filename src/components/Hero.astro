@@ -1,5 +1,5 @@
 ---
-import { FIGHTERS } from "../consts/fighters";
+import {FIGHTERS} from "../consts/fighters";
 import BoxerCard from "./BoxerCard.astro";
 
 const firstRowLeft = FIGHTERS.slice(0, 3);
@@ -7,7 +7,6 @@ const firstRowRight = FIGHTERS.slice(3, 6);
 
 const SecondRowLeft = FIGHTERS.slice(6, 10);
 const SecondRowRight = FIGHTERS.slice(10);
-const secondRow = FIGHTERS.slice(6);
 ---
 
 <section class="relative flex min-h-screen justify-center w-full px-" id="hero">
@@ -30,7 +29,6 @@ const secondRow = FIGHTERS.slice(6);
           class="w-64 h-auto z-40"
           src="/images/logo.webp"
           alt="La Velada del año V"
-          fetchpriority="high"
         />
         <div class="absolute bg-pink-400/70 blur-2xl z-0 size-64 top-0"></div>
       </figure>
@@ -61,13 +59,12 @@ const secondRow = FIGHTERS.slice(6);
         class="relative top-0 mx-auto h-20 flex w-full items-center justify-center"
       >
         {
-          FIGHTERS.map(({ id, name }) => (
+          FIGHTERS.map(({id, name}) => (
             <img
+              data-id={`hero-text-${id}`}
               src={`/images/fighters/text/${id}.webp`}
               alt={"Nombre de " + name}
-              decoding="async"
               class="w-auto h-full absolute hidden"
-              fetchpriority="low"
             />
           ))
         }
@@ -77,13 +74,12 @@ const secondRow = FIGHTERS.slice(6);
         class="mask-fade-bottom relative bottom-0 mx-auto h-[60vh] flex w-full items-center justify-center"
       >
         {
-          FIGHTERS.map(({ id, name }) => (
+          FIGHTERS.map(({id, name}) => (
             <img
+              data-id={`hero-image-${id}`}
               src={`/images/fighters/big/${id}.webp`}
               alt={"Imagen de " + name}
-              decoding="async"
               class="w-auto h-full absolute hidden"
-              fetchpriority="low"
             />
           ))
         }
@@ -95,23 +91,19 @@ const secondRow = FIGHTERS.slice(6);
     >
       <!-- FISRT ROW -->
       <div class="flex flex-wrap gap-x-2 md:gap-x-4 m-x-auto">
-        {firstRowLeft.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
+        {firstRowLeft.map(({id, name}) => <BoxerCard id={id} name={name} />)}
       </div>
       <div class="flex flex-wrap gap-x-2 md:gap-x-4 m-x-auto">
-        {firstRowRight.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
+        {firstRowRight.map(({id, name}) => <BoxerCard id={id} name={name} />)}
       </div>
       <!-- SECOND ROW -->
       <div class="flex flex-wrap justify-around gap-x-4 w-[1200px] mb-4 z-10">
         <div class="flex flex-wrap gap-x-2 md:gap-x-4 m-x-auto">
-          {
-            SecondRowLeft.map(({ id, name }) => (
-              <BoxerCard id={id} name={name} />
-            ))
-          }
+          {SecondRowLeft.map(({id, name}) => <BoxerCard id={id} name={name} />)}
         </div>
         <div class="flex flex-wrap gap-x-2 md:gap-x-4 m-x-auto">
           {
-            SecondRowRight.map(({ id, name }) => (
+            SecondRowRight.map(({id, name}) => (
               <BoxerCard id={id} name={name} />
             ))
           }
@@ -120,3 +112,35 @@ const secondRow = FIGHTERS.slice(6);
     </div>
   </div>
 </section>
+
+<!-- SCRIPT FOR VISIBILITY OF FIGHTERS -->
+<script>
+  let currentFighterId: string | null = null;
+
+  document.addEventListener("boxer-card-hovered", (event: Event) => {
+    const customEvent = event as CustomEvent<{id: string}>;
+    const id = customEvent.detail.id;
+
+    if (currentFighterId === id) return;
+
+    /*  if(currentFighterId !== id) {
+      document.querySelector(`[data-id=hero-text-${currentFighterId}]`)?.classList.add('hidden')
+      document.querySelector(`[data-id=hero-image-${currentFighterId}]`)?.classList.add('hidden')
+    } */
+
+    // 0. Añadir hidden al currentFighter si existe
+
+    // 1. Quitar el hidden del título del boxeador
+    // 2. Quitar el hidden de la imagen del boxeador
+    
+    currentFighterId = id;
+    document
+      .querySelector(`[data-id="hero-text-${currentFighterId}"]`)
+      ?.classList.remove("hidden");
+    document
+      .querySelector(`[data-id="hero-image-${currentFighterId}"]`)
+      ?.classList.remove("hidden");
+
+    console.log("Boxer card hovered:", id);
+  });
+</script>

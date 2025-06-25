@@ -1,20 +1,42 @@
 ---
-const { id, name } = Astro.props;
+const {id, name} = Astro.props;
 ---
 
 <a
-  class="w-10 h-auto sm:w-14 md:w-18 lg:w-24 inline-block transition hover:-translate-y-3 relative rounded overflow-hidden"
+  class="boxer-card w-10 h-auto sm:w-14 md:w-18 lg:w-24 inline-block transition hover:-translate-y-3 relative rounded overflow-hidden"
   href={`/peleador/${id}`}
+  data-id={id}
 >
   <img
-    class="aspect-[900/1200] w-full h-full object-cover"
+    class="aspect-[900/1200] w-full h-auto object-cover"
     src={`/images/fighters/cards/${id}.webp`}
-    alt={"Imagen de " + name}
+    alt={`Tarjeta del boxeador ${name}`}
   />
 
-  <div 
+  <div
     class="absolute z-10 inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-pink-950/90 via-transparent hover:to-transparent p-1 opacity-0 hover:opacity-100 transition-opacity duration-300"
   >
     <h3 class="text-theme-tickle-me-pink text-xs">{name}</h3>
   </div>
 </a>
+
+<script>
+  const boxerCards = document.querySelectorAll('.boxer-card')
+
+  boxerCards.forEach((singleBoxerCard, index) => {
+    singleBoxerCard.addEventListener("mouseenter", () => {
+      const id = singleBoxerCard.getAttribute("data-id");
+
+      console.log("seleccionaste a",id);
+
+      // Dispatch a custom event to notify a boxerCardId is hovered
+      const event = new CustomEvent("boxer-card-hovered", { 
+        detail : {id},
+      })
+      
+      document.dispatchEvent(event)
+    })
+
+    /* Aquí va el mouseleave */
+  })
+</script>
