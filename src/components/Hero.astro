@@ -115,6 +115,8 @@ const SecondRowRight = FIGHTERS.slice(10);
 
 <!-- SCRIPT FOR VISIBILITY OF FIGHTERS -->
 <script>
+  const $landing = document.querySelector('#landing')
+
   let currentFighterId: string | null = null;
 
   document.addEventListener("boxer-card-hovered", (event: Event) => {
@@ -128,7 +130,7 @@ const SecondRowRight = FIGHTERS.slice(10);
       document.querySelector(`[data-id=hero-text-${currentFighterId}]`)?.classList.add('hidden')
       document.querySelector(`[data-id=hero-image-${currentFighterId}]`)?.classList.add('hidden')
     }
-   
+
     // 0. Añadir hidden al currentFighter si existe
     // 1. Quitar el hidden del título del boxeador
     // 2. Quitar el hidden de la imagen del boxeador
@@ -136,12 +138,25 @@ const SecondRowRight = FIGHTERS.slice(10);
     currentFighterId = id;
     // ...para luego mostrar el boxeador seleccionado
     document
-      .querySelector(`[data-id="hero-text-${currentFighterId}"]`)
+    .querySelector(`[data-id="hero-text-${currentFighterId}"]`)
       ?.classList.remove("hidden");
     document
       .querySelector(`[data-id="hero-image-${currentFighterId}"]`)
       ?.classList.remove("hidden");
-
+      
     console.log("Boxer card hovered:", id);
   });
+
+  document.addEventListener("boxer-card-deselected", (event: Event) => {
+    const customEvent = event as CustomEvent<{id: string}>;
+    const id = customEvent.detail.id;
+
+    // Si seldeccionas un luchador primero borras el boxeador que se muestra
+    if(currentFighterId) {
+      document.querySelector(`[data-id=hero-text-${currentFighterId}]`)?.classList.add('hidden')
+      document.querySelector(`[data-id=hero-image-${currentFighterId}]`)?.classList.add('hidden')
+    }
+
+    console.log("Boxer card hovered:", id);
+  })
 </script>
