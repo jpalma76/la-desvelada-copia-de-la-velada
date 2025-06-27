@@ -1,12 +1,13 @@
 ---
 const {id, name} = Astro.props;
 ---
-
+<!-- contenedor de la card -->
 <a
-  class="boxer-card w-10 h-auto sm:w-14 md:w-18 lg:w-24 inline-block transition hover:-translate-y-3 relative rounded overflow-hidden"
+  class="boxer-card w-10 h-auto sm:w-14 md:w-18 lg:w-28 inline-block transition-all hover:-translate-y-3 relative rounded overflow-hidden"
   href={`/peleador/${id}`}
   data-id={id}
 >
+  <!-- imagen del boxeador -->
   <img
     class="w-full h-auto object-cover"
     src={`/images/fighters/cards/${id}.webp`}
