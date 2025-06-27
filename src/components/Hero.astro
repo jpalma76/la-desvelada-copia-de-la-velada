@@ -26,7 +26,7 @@ const SecondRowRight = FIGHTERS.slice(10);
       </h3>
       <figure class="relative flex my-5 animate-fade-in">
         <img
-          class="w-64 h-auto z-40"
+          class="w-64 h-auto z-10"
           src="/images/logo.webp"
           alt="La Velada del año V"
         />
@@ -38,7 +38,7 @@ const SecondRowRight = FIGHTERS.slice(10);
         ESTADIO<br />LA CARTUJA<br /><strong>SEVILLA</strong>
       </h3>
       <h3
-        class="font-light text-theme-raisin-black leading-5 my-5 animate-fade-in animate-delay-700 z-10"
+        class="font-light text-theme-raisin-black leading-5 my-5 animate-fade-in animate-delay-700"
       >
         <a
           href="https://twitch.tv/ibai"
@@ -56,8 +56,9 @@ const SecondRowRight = FIGHTERS.slice(10);
       class="pointer-events-none absolute inset-0 flex flex-col items-center"
     >
       <div
-        class="relative top-0 mx-auto h-20 flex w-full items-center justify-center"
+        class="relative top-0 mx-auto h-20 flex w-[70%] md:w-full items-center justify-center z-20"
       >
+        <!-- Nombre del Boxeador -->
         {
           FIGHTERS.map(({id, name}) => (
             <img
@@ -71,8 +72,9 @@ const SecondRowRight = FIGHTERS.slice(10);
       </div>
 
       <div
-        class="mask-fade-bottom relative bottom-0 mx-auto h-[60vh] flex w-full items-center justify-center"
+        class="mask-fade-bottom relative bottom-0 mx-auto h-[50vh] md:h-[60vh] flex w-full items-center justify-center z-20"
       >
+        <!-- Imagen del Boxeador -->
         {
           FIGHTERS.map(({id, name}) => (
             <img
@@ -87,7 +89,7 @@ const SecondRowRight = FIGHTERS.slice(10);
     </div>
 
     <div
-      class="flex flex-wrap justify-around w-full max-w-[1200px] gap-y-4 gap-x-24 mb-6 z-0"
+      class="flex flex-wrap justify-around w-full max-w-[1200px] gap-y-4 gap-x-24 mb-6 z-30"
     >
       <!-- FISRT ROW -->
       <div class="flex flex-wrap gap-x-2 md:gap-x-4 m-x-auto">
