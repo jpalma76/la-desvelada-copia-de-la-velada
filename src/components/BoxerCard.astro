@@ -21,33 +21,37 @@ const {id, name} = Astro.props;
 </a>
 
 <script>
-  const boxerCards = document.querySelectorAll('.boxer-card')
+  const boxerCards = document.querySelectorAll(".boxer-card");
 
   boxerCards.forEach((singleBoxerCard) => {
     singleBoxerCard.addEventListener("mouseenter", () => {
       const id = singleBoxerCard.getAttribute("data-id");
-      console.log("seleccionaste a",id);
+      console.log("seleccionaste a", id);
 
       // Dispatch a custom event to notify a boxerCardId is hovered
-      const event = new CustomEvent("boxer-card-hovered", { 
-        detail : {id},
-      }) 
-      document.dispatchEvent(event)
-    })
-    
-    /* Aquí va el mouseleave */
-    boxerCards.forEach((singleBoxerCard) => {
-      const id = singleBoxerCard.getAttribute("data-id");
-      singleBoxerCard.addEventListener("mouseleave", () => {
-        console.log("Deseleccionaste a", id)
+      const event = new CustomEvent("boxer-card-hovered", {
+        detail: {id},
+      });
+      document.dispatchEvent(event);
+    });
 
+    singleBoxerCard.addEventListener("mouseleave", () => {
+      const id = singleBoxerCard.getAttribute("data-id");
+      console.log("Deseleccionaste a", id)
+      if (id) {
         // Dispatch a custom event to notify a boxerCardId is hovered
-      const event = new CustomEvent("boxer-card-deselected", { 
-        detail : {id},
-      }) 
-      document.dispatchEvent(event)
+        const event = new CustomEvent("boxer-card-deselected", { detail : {id},}) 
+        document.dispatchEvent(event)
+      }
+    })
+  });
+</script>
+
+<!-- 
+  // Aquí va el mouseleave
+  boxerCards.forEach((singleBoxerCard) => {
+    singleBoxerCard.addEventListener("mouseleave", () => {
+      
       })
     })
-
-  })
-</script>
+ -->
