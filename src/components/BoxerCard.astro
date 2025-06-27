@@ -23,20 +23,31 @@ const {id, name} = Astro.props;
 <script>
   const boxerCards = document.querySelectorAll('.boxer-card')
 
-  boxerCards.forEach((singleBoxerCard, index) => {
+  boxerCards.forEach((singleBoxerCard) => {
     singleBoxerCard.addEventListener("mouseenter", () => {
       const id = singleBoxerCard.getAttribute("data-id");
-
       console.log("seleccionaste a",id);
 
       // Dispatch a custom event to notify a boxerCardId is hovered
       const event = new CustomEvent("boxer-card-hovered", { 
         detail : {id},
-      })
-      
+      }) 
       document.dispatchEvent(event)
     })
-
+    
     /* Aquí va el mouseleave */
+    boxerCards.forEach((singleBoxerCard) => {
+      const id = singleBoxerCard.getAttribute("data-id");
+      singleBoxerCard.addEventListener("mouseleave", () => {
+        console.log("Deseleccionaste a", id)
+
+        // Dispatch a custom event to notify a boxerCardId is hovered
+      const event = new CustomEvent("boxer-card-deselected", { 
+        detail : {id},
+      }) 
+      document.dispatchEvent(event)
+      })
+    })
+
   })
 </script>
