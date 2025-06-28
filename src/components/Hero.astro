@@ -125,8 +125,6 @@ const SecondRowRight = FIGHTERS.slice(10);
     const customEvent = event as CustomEvent<{id: string}>;
     const id = customEvent.detail.id;
 
-    // Si el boxeador seleccionado es el mismo que se muestra, no haga nada
-    if (currentFighterId === id) return;
     // Si seldeccionas un luchador primero borras el boxeador que se muestra
     if(currentFighterId) {
       document.querySelector(`[data-id=hero-text-${currentFighterId}]`)?.classList.add('hidden')
