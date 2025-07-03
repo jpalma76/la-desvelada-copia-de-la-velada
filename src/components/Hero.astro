@@ -9,7 +9,7 @@ const SecondRowLeft = FIGHTERS.slice(6, 10);
 const SecondRowRight = FIGHTERS.slice(10);
 ---
 
-<section class="relative flex min-h-screen justify-center w-full px-" id="hero">
+<section class="relative flex min-h-screen justify-center w-full" id="hero">
   <div class="absolute mt-24 z-10 w-full h-44 transparent flex justify-center items-center">
     <p class="font-bold text-white/50 italic">Esta es una copia no oficial de la Página de la Velada V hecha a modo de practica.</p>
   </div>
@@ -56,10 +56,10 @@ const SecondRowRight = FIGHTERS.slice(10);
 
     <div
       id="fighter-container"
-      class="w-full pointer-events-none absolute inset-0 flex flex-col items-center !mb-10"
+      class="w-full pointer-events-none relative flex flex-col items-center justify-center"
     >
       <div
-        class="relative top-0 mx-auto h-20 flex w-[80%] md:w-full items-center justify-center z-20"
+        class="relative top-20 mx-auto h-20 flex w-[80%] md:w-full items-center justify-center z-20"
       >
         <!-- Nombre del Boxeador -->
         {
@@ -75,7 +75,7 @@ const SecondRowRight = FIGHTERS.slice(10);
       </div>
 
       <div
-        class="mask-fade-bottom relative mx-auto h-[70vh] flex w-[70%] items-center justify-center z-20"
+        class="mask-fade-bottom relative top-16 mx-auto h-[70vh] flex w-[70%] items-center justify-center z-20"
       >
         <!-- Imagen del Boxeador -->
         {
@@ -138,6 +138,7 @@ const SecondRowRight = FIGHTERS.slice(10);
     
     currentFighterId = id;
     // ...para luego mostrar el boxeador seleccionado
+    $landing?.classList.add('hidden')
     document
     .querySelector(`[data-id="hero-text-${currentFighterId}"]`)
       ?.classList.remove("hidden");
@@ -152,6 +153,7 @@ const SecondRowRight = FIGHTERS.slice(10);
 
     // Si seldeccionas un luchador primero borras el boxeador que se muestra
     if(currentFighterId) {
+      $landing?.classList.remove('hidden')
       document.querySelector(`[data-id=hero-text-${currentFighterId}]`)?.classList.add('hidden')
       document.querySelector(`[data-id=hero-image-${currentFighterId}]`)?.classList.add('hidden')
     }
