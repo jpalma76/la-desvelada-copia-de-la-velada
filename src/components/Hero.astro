@@ -81,6 +81,7 @@ const SecondRowRight = FIGHTERS.slice(10);
         {
           FIGHTERS.map(({id, name}) => (
             <img
+              transition:name={`image-${id}`}
               data-id={`hero-image-${id}`}
               src={`/images/fighters/big/${id}.webp`}
               alt={"Imagen de " + name}
@@ -122,41 +123,43 @@ const SecondRowRight = FIGHTERS.slice(10);
 
 <!-- SCRIPT FOR VISIBILITY OF FIGHTERS -->
 <script>
-  const $landing = document.querySelector('#landing')
-
-  let currentFighterId: string | null = null;
-
-  document.addEventListener("boxer-card-hovered", (event: Event) => {
-    const customEvent = event as CustomEvent<{id: string}>;
-    const id = customEvent.detail.id;
-
-    // Si seldeccionas un luchador primero borras el boxeador que se muestra
-    if(currentFighterId) {
-      document.querySelector(`[data-id=hero-text-${currentFighterId}]`)?.classList.add('hidden')
-      document.querySelector(`[data-id=hero-image-${currentFighterId}]`)?.classList.add('hidden')
-    }
-    
-    currentFighterId = id;
-    // ...para luego mostrar el boxeador seleccionado
-     $landing?.classList.add('hidden')
-    document
-    .querySelector(`[data-id="hero-text-${currentFighterId}"]`)
-      ?.classList.remove("hidden");
-    document
-      .querySelector(`[data-id="hero-image-${currentFighterId}"]`)
-      ?.classList.remove("hidden");
-  });
-
-  document.addEventListener("boxer-card-deselected", (event: Event) => {
-    const customEvent = event as CustomEvent<{id: string}>;
-    const id = customEvent.detail.id;
-
-    // Si seldeccionas un luchador primero borras el boxeador que se muestra
-    if(currentFighterId) {
-       $landing?.classList.remove('hidden')
-      document.querySelector(`[data-id=hero-text-${currentFighterId}]`)?.classList.add('hidden')
-      document.querySelector(`[data-id=hero-image-${currentFighterId}]`)?.classList.add('hidden')
-    }
-    currentFighterId = null
+  document.addEventListener('astro:page-load', () => {
+    const $landing = document.querySelector('#landing')
+  
+    let currentFighterId: string | null = null;
+  
+    document.addEventListener("boxer-card-hovered", (event: Event) => {
+      const customEvent = event as CustomEvent<{id: string}>;
+      const id = customEvent.detail.id;
+  
+      // Si seldeccionas un luchador primero borras el boxeador que se muestra
+      if(currentFighterId) {
+        document.querySelector(`[data-id=hero-text-${currentFighterId}]`)?.classList.add('hidden')
+        document.querySelector(`[data-id=hero-image-${currentFighterId}]`)?.classList.add('hidden')
+      }
+      
+      currentFighterId = id;
+      // ...para luego mostrar el boxeador seleccionado
+       $landing?.classList.add('hidden')
+      document
+      .querySelector(`[data-id="hero-text-${currentFighterId}"]`)
+        ?.classList.remove("hidden");
+      document
+        .querySelector(`[data-id="hero-image-${currentFighterId}"]`)
+        ?.classList.remove("hidden");
+    });
+  
+    document.addEventListener("boxer-card-deselected", (event: Event) => {
+      const customEvent = event as CustomEvent<{id: string}>;
+      const id = customEvent.detail.id;
+  
+      // Si seldeccionas un luchador primero borras el boxeador que se muestra
+      if(currentFighterId) {
+         $landing?.classList.remove('hidden')
+        document.querySelector(`[data-id=hero-text-${currentFighterId}]`)?.classList.add('hidden')
+        document.querySelector(`[data-id=hero-image-${currentFighterId}]`)?.classList.add('hidden')
+      }
+      currentFighterId = null
+    })
   })
 </script>

@@ -1,10 +1,11 @@
 ---
-const {id, name} = Astro.props;
+const { id, name } = Astro.props;
 ---
+
 <!-- contenedor de la card -->
 <a
-  class="boxer-card w-9 h-auto sm:w-9 md:w-14 lg:w-24 inline-block transition-all hover:-translate-y-3 relative rounded overflow-hidden"
-  href={`/peleador/${id}`}
+  class="boxer-card h-auto sm:w-9 md:w-14 lg:w-24 inline-block transition-all hover:-translate-y-3 relative rounded overflow-hidden"
+  href={`/luchador/${id}`}
   data-id={id}
 >
   <!-- imagen del boxeador -->
@@ -22,27 +23,31 @@ const {id, name} = Astro.props;
 </a>
 
 <script>
-  const boxerCards = document.querySelectorAll(".boxer-card");
-/* Dxisparadores de Eventos */
-  boxerCards.forEach((singleBoxerCard) => {
-    singleBoxerCard.addEventListener("mouseenter", () => {
-      const id = singleBoxerCard.getAttribute("data-id");
+  document.addEventListener("astro:page-load", () => {
+    const boxerCards = document.querySelectorAll(".boxer-card");
 
-      // Dispatch a custom event to notify a boxerCardId is hovered
-      const event = new CustomEvent("boxer-card-hovered", {
-        detail: {id},
+    /* Disparadores de Eventos */
+    boxerCards.forEach((singleBoxerCard) => {
+      singleBoxerCard.addEventListener("mouseenter", () => {
+          const id = singleBoxerCard.getAttribute("data-id");
+  
+          // Dispatch a custom event to notify a boxerCardId is hovered
+          const event = new CustomEvent("boxer-card-hovered", {
+            detail: { id },
+          });
+          document.dispatchEvent(event);
       });
-      document.dispatchEvent(event);
+
+      singleBoxerCard.addEventListener("mouseleave", () => {
+          const id = singleBoxerCard.getAttribute("data-id");
+          if (id) {
+            // Dispatch a custom event to notify a boxerCardId is deselected
+            const event = new CustomEvent("boxer-card-deselected", {
+              detail: { id },
+            });
+            document.dispatchEvent(event);
+          }
+      });
     });
-
-    singleBoxerCard.addEventListener("mouseleave", () => {
-      const id = singleBoxerCard.getAttribute("data-id");
-
-      if (id) {
-        // Dispatch a custom event to notify a boxerCardId is deselected
-        const event = new CustomEvent("boxer-card-deselected", { detail : {id},}) 
-        document.dispatchEvent(event)
-      }
-    })
   });
 </script>
