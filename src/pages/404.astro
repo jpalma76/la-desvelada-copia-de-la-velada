@@ -1,0 +1,36 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <header>
+      <h1>404 - No fue posible obtener una respuesta del servidor</h1>
+    </header>
+    <div class="message">
+      <h3>Page not found</h3>
+      <img src="/40Oj.gif" alt="John Travolta" />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  header {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    margin-top: 100px;
+  }
+  main {
+    width: 100%;
+    height: 80dvh;
+  }
+  .message {
+    width: 100%;
+    height: 80dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
