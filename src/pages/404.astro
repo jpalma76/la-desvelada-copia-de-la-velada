@@ -3,37 +3,10 @@ import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout>
-  <main class="relative flex flex-col w-full bg-[url('/images/hero.webp')] bg-cover bg-center mask-fade-bottom min-h-screen justify-center items-center">
-    <header>
+  <div class="relative !pt-24 w-full min-h-screen bg-[url('/images/hero.webp')] bg-cover bg-center text-dark-magenta font-2xl gap-3 flex flex-col items-center text-center">
       <h1>404 - No fue posible obtener una respuesta del servidor</h1>
-    </header>
-    <div class="message">
-      <h3>Page not found</h3>
-      <img src="/40Oj.gif" alt="John Travolta" />
-    </div>
-  </main>
+      <h3 class="text-3xl  my-1">Page not found</h3>
+      <img class="w-[400px] h-auto mask-fade-bottom" src="/40Oj.gif" alt="John Travolta" />
+      <img class="w-[80px] absolute bottom-5 right-10" src="/bailando.gif" alt="">
+  </div>
 </Layout>
-
-<style>
-  html {
-    color: #fff;
-  }
-  header {
-    width: 100%;
-    height: 100px;
-    text-align: center;
-    margin-top: 100px;
-  }
-  main {
-    width: 100%;
-    height: 80dvh;
-  }
-  .message {
-    width: 100%;
-    height: 80dvh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-</style>
