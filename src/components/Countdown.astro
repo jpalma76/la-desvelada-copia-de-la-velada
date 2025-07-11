@@ -4,36 +4,36 @@ import SectionTitle from "./SectionTitle.astro"
 const TIMESTAMP_END = 1761264420000
 ---
 
-<section class="w-full h-auto my-32 !py-48 flex flex-col gap-y-10 justify-center items-center">
+<section class="w-full h-auto !py-48 flex flex-col gap-y-10 justify-center items-center">
 
   <SectionTitle title="Cuenta atrás para el evento..." />
   
-  <div class="flex flex-row mx-auto gap-x-2 text-primary uppercase font-semibold" data-date={TIMESTAMP_END}>
+  <div class="flex flex-row max-sm:mx-0 mx-auto gap-x-2 text-primary uppercase font-semibold" data-date={TIMESTAMP_END}>
 
-    <div class="flex flex-col justify-center items-center gap-y-2 w-32">
-      <span class="text-4xl tabular-nums text-center" data-days></span>
-      <span class="text-sm text-center">Días</span>
+    <div class="flex flex-col justify-center text-center items-center gap-y-2 max-sm:w-[60px] md:28 lg:w-[120px]">
+      <span class="text-2xl md:text-3xl lg:text-4xl tabular-nums text-center" data-days></span>
+      <span class="max-sm:text-[8px] max-md:text-sm text-sm text-center">Días</span>
+    </div>
+
+    <span aria-hidden="true" class="h-full flex items-center text-xl">:</span>
+
+    <div class="flex flex-col justify-center text-center items-center gap-y-2 max-sm:w-[60px] md:28 lg:w-[120px]">
+      <span class="text-2xl md:text-3xl lg:text-4xl tabular-nums text-center" data-hours></span>
+      <span class="max-sm:text-[8px] max-md:text-sm text-center">Horas</span>
     </div>
 
     <span aria-hidden="true" class="mt-1 text-xl">:</span>
 
-    <div class="flex flex-col justify-center items-center gap-y-2 w-32">
-      <span class="text-4xl tabular-nums text-center" data-hours></span>
-      <span class="text-sm text-center">Horas</span>
+    <div class="flex flex-col justify-center items-center text-center gap-y-2 max-sm:w-[60px] md:28 lg:w-[120px]">
+      <span class="text-2xl md:text-3xl lg:text-4xl tabular-nums text-center" data-minutes></span>
+      <span class="max-sm:text-[8px] max-md:text-sm text-center">Minutos</span>
     </div>
 
     <span aria-hidden="true" class="mt-1 text-xl">:</span>
 
-    <div class="flex flex-col justify-center items-center gap-y-2 w-32">
-      <span class="text-4xl tabular-nums text-center" data-minutes></span>
-      <span class="text-sm text-center">Minutos</span>
-    </div>
-
-    <span aria-hidden="true" class="mt-1 text-xl">:</span>
-
-    <div class="flex flex-col justify-center items-center gap-y-2 w-32">
-      <span class="text-4xl tabular-nums text-center" data-seconds></span>
-      <span class="text-sm text-center">Segundos</span>
+    <div class="flex flex-col justify-center items-center text-center gap-y-2 max-sm:w-[60px] md:28 lg:w-[120px]">
+      <span class="text-2xl md:text-3xl lg:text-4xl tabular-nums text-center" data-seconds></span>
+      <span class="w--full max-sm:text-[8px] max-md:text-sm text-center">Seconds</span>
     </div>
 
   </div>
