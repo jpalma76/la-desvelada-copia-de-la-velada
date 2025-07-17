@@ -61,7 +61,7 @@ const SecondRowRight = FIGHTERS.slice(10);
 
     <div
       id="fighter-container"
-      class="w-full pointer-events-none absolute inset-0 flex flex-col items-center !mb-10"
+      class="w-full pointer-events-none absolute inset-0 flex flex-col items-center mb-10!"
     >
       <div
         class="relative top-0 mx-auto h-20 flex w-[80%] md:w-full items-center justify-center z-20"
@@ -98,7 +98,7 @@ const SecondRowRight = FIGHTERS.slice(10);
     </div>
 
     <div
-      class="relative !bottom-10 flex flex-wrap justify-around w-full max-w-[1100px] gap-y-6 gap-x-24 mb-6 z-30"
+      class="relative bottom-10! flex flex-wrap justify-around w-full max-w-[1100px] gap-y-6 gap-x-24 mb-6 z-30"
     >
       <!-- FISRT ROW -->
 
@@ -161,11 +161,9 @@ const SecondRowRight = FIGHTERS.slice(10);
       // ...para luego mostrar el boxeador seleccionado
       $landing?.classList.add("hidden");
       $(`[data-id="hero-text-${currentFighterId}"]`)?.classList.remove(
-        "hidden"
-      );
+        "hidden");
       $(`[data-id="hero-image-${currentFighterId}"]`)?.classList.remove(
-        "hidden"
-      );
+        "hidden");
     });
 
     document.addEventListener("boxer-card-deselected", (event: Event) => {
