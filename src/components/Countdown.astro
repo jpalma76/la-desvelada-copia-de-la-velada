@@ -1,0 +1,70 @@
+---
+import SectionTitle from "./SectionTitle.astro"
+import Date from "./Date.astro"
+
+const TIMESTAMP_END = 1761264420000
+---
+
+<section class="w-full h-auto py-48! flex flex-col gap-y-10 justify-center items-center">
+  <SectionTitle title="Cuenta atrás para el evento..." />
+
+  <div class="flex flex-row gap-x-2 text-primary uppercase font-semibold" data-date={TIMESTAMP_END}>
+    <Date max={0} dateType="Días" wrapperClassName="w-[60px]" attribute={{ "data-days": "" }} />
+    <span aria-hidden="true" class="h-full flex items-center text-xl">:</span>
+    <Date max={0} dateType="Horas" wrapperClassName="w-[60px]" attribute={{ "data-hours": "" }} />
+    <span aria-hidden="true" class="h-full flex items-center text-xl">:</span>
+    <Date max={0} dateType="Minutos" wrapperClassName="w-[60px]" attribute={{ "data-minutes": "" }} />
+    <span aria-hidden="true" class="h-full flex items-center text-xl">:</span>
+    <Date max={0} dateType="Segundos" wrapperClassName="w-[60px]" attribute={{ "data-seconds": "" }} />
+  </div>
+
+  <span class="mt-1 text-xl italic">...para mi cumpleaños 🥳🥳🥳</span>
+</section>
+
+<script type="module">
+  const SECOND = 1000
+  const MINUTE = SECOND * 60
+  const HOUR = MINUTE * 60
+  const DAY = HOUR * 24
+
+  function init() {
+    const $countdown = document.querySelector('[data-date]')
+    if (!$countdown) return
+
+    const $days = $countdown.querySelector('[data-days]')
+    const $hours = $countdown.querySelector('[data-hours]')
+    const $minutes = $countdown.querySelector('[data-minutes]')
+    const $seconds = $countdown.querySelector('[data-seconds]')
+
+    const timestamp = $countdown.getAttribute('data-date')
+    if (!timestamp) return
+
+    const date = new Date(+timestamp).getTime()
+
+    function updateCountdown() {
+      const now = Date.now()
+      const diff = date - now
+
+      const d = Math.floor(diff / DAY)
+      const h = Math.floor((diff % DAY) / HOUR)
+      const m = Math.floor((diff % HOUR) / MINUTE)
+      const s = Math.floor((diff % MINUTE) / SECOND)
+
+      if ($days) updateFlip($days, d)
+      if ($hours) updateFlip($hours, h)
+      if ($minutes) updateFlip($minutes, m)
+      if ($seconds) updateFlip($seconds, s)
+    }
+
+    function updateFlip(el, value) {
+      const digits = value.toString().padStart(2, "0").split("")
+      el.querySelector('[data-first-group]').innerText = digits[0]
+      el.querySelector('[data-second-group]').innerText = digits[1]
+    }
+
+    updateCountdown()
+    setInterval(updateCountdown, SECOND)
+  }
+
+  init()
+</script>
