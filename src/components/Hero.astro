@@ -10,7 +10,7 @@ const SecondRowRight = FIGHTERS.slice(10);
 ---
 
 <section class="relative flex min-h-screen justify-center w-full" id="hero">
-  <div class="bg-[url('/images/hero.avif')] bg-cover bg-center w-full mask-fade-bottom absolute inset-0"></div>
+  <div class="bg-[url('/images/hero.avif')] fetchpriority-hight bg-cover bg-center w-full mask-fade-bottom absolute inset-0"></div>
 
   <div class="absolute mt-24 z-10 w-full transparent flex justify-center items-center top-12">
     <p class="font-bold text-white/50 italic">
@@ -35,6 +35,7 @@ const SecondRowRight = FIGHTERS.slice(10);
           class="w-64 h-64 object-cover z-10"
           src="/images/logo.avif"
           alt="La Velada del año V"
+          fetch-priority="high"
         />
       </div>
 
@@ -70,6 +71,7 @@ const SecondRowRight = FIGHTERS.slice(10);
         {
           FIGHTERS.map(({ id, name }) => (
             <img
+              fetch-priority="high"
               aria-label={`Nombre de ${name}`}
               data-id={`hero-text-${id}`}
               src={`/images/fighters/text/${id}.webp`}
@@ -92,6 +94,7 @@ const SecondRowRight = FIGHTERS.slice(10);
               data-id={`hero-image-${id}`}
               src={`/images/fighters/big/${id}.webp`}
               alt={"Imagen de " + name}
+              fetch-priority="high"
               class="w-[350px] h-[90%] absolute hidden items-center"
             />
           ))
