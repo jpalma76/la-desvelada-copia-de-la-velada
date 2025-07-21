@@ -4,6 +4,7 @@ import LiteYoutube from "@/components/LiteYouTube.astro";
 
 const videoId = "t7r5O_5B-E0";
 const title = "Video de presentación de la Velada V";
+
 ---
 
 <section
@@ -11,13 +12,13 @@ const title = "Video de presentación de la Velada V";
   class="w-full min-h-[650px] flex flex-col items-center justify-center"
 >
   <SectionTitle title="Video de presentación de la Velada V" />
-  
-  <div class="w-[560px] h-[315px] !my-4">
+  <div class="w-[600px] h-auto !my-4">
     <LiteYoutube
       videoId={videoId}
       title={title}
       backgroundImage="/images/presentation-video-cover.webp"
     />
-    
+  </div>
+
   </div>
 </section>
