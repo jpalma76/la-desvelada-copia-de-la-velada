@@ -11,8 +11,9 @@ const { id, name } = Astro.props;
   <!-- imagen del boxeador -->
   <img
     aria-label={`Imagen de ${name}`}
-    class="w-full h-full object-cover"
+    class="w-full h-full"
     src={`/images/fighters/cards/${id}.webp`}
+    fetch-priority="high"
     alt={`Tarjeta del boxeador ${name}`}
   />
 
