@@ -1,16 +1,23 @@
 ---
 import SectionTitle from "@/components/SectionTitle.astro";
+import LiteYoutube from "@/components/LiteYouTube.astro";
 
+const videoId = "t7r5O_5B-E0";
+const title = "Video de presentación de la Velada V";
 ---
 
-<section id="presentation" class="w-full min-h-[650px] flex flex-col items-center justify-center">
-    <SectionTitle title="Video de presentación de la Velada V"/>
-    <div class="w-[560px] h-[315px] !my-4">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/t7r5O_5B-E0?si=0MmfB2DrzV33eYUE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-
-    <SectionTitle title="Video de presentación de la Velada V"/>
-    <div class="w-[560px] h-[315px] !my-4">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/t7r5O_5B-E0?si=0MmfB2DrzV33eYUE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
+<section
+  id="presentation"
+  class="w-full min-h-[650px] flex flex-col items-center justify-center"
+>
+  <SectionTitle title="Video de presentación de la Velada V" />
+  
+  <div class="w-[560px] h-[315px] !my-4">
+    <LiteYoutube
+      videoId={videoId}
+      title={title}
+      backgroundImage="/images/presentation-video-cover.webp"
+    />
+    
+  </div>
 </section>
