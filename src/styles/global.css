@@ -60,3 +60,10 @@ body {
 @utility mask-fade-bottom {
   mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
 }
+
+@utility background-image-theme {
+  background-image: url('/images/hero.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
