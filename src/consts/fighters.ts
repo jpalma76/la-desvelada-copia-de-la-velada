@@ -887,7 +887,7 @@ export const FIGHTERS: Fighters[] = [
     age: 24,
     weight: 63,
     country: 'co',
-    flag: '/images/flags/es.webp',
+    flag: '/images/flags/co.webp',
     gallery: true,
     city: 'Ciudad Bolívar, Antioquia',
     versus: 'grefg',
@@ -1160,7 +1160,7 @@ export const FIGHTERS: Fighters[] = [
     weight: 85,
     gallery: true,
     country: 'mx',
-    flag: '/images/flags/es.webp',
+    flag: '/images/flags/mx.webp',
     city: 'Monterrey, Nuevo León',
     versus: 'andoni',
     socials: [
