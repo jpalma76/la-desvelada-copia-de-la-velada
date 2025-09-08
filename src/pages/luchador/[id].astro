@@ -31,7 +31,7 @@ const title = "Información Luchador";
             data-id={`hero-text-${id}`}
             src={`/images/fighters/text/${id}.webp`}
             alt={"Nombre de " + name}
-            class="relative h-auto w-[70%] z-10"
+            class="relative h-auto w-[80%] z-10"
           />
         </div>
 
@@ -45,7 +45,7 @@ const title = "Información Luchador";
           <p><label>Peso</label> : <span>{fighter?.weight} Kg.</span></p>
           <div class="w-full flex items-center gap-x-5 my-4">
             <div class="w-[60px] h-auto flex items-center">
-              <img src={fighter?.flag} alt={fighter?.country} class="w-full h-auto "/>
+              <img src={fighter?.flag} alt={fighter?.country} class="flex rounded-xs"/>
             </div>
             <span class="w-full text-sm">{fighter?.city}</span>
           </div>
