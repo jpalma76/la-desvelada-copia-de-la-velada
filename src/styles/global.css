@@ -58,7 +58,7 @@ body {
 }
 
 @utility mask-fade-bottom {
-  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 
 @utility background-image-theme {
