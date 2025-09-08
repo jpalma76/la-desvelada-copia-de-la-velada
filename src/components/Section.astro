@@ -6,6 +6,6 @@ interface Props {
 const { id, title } = Astro.props as Props;
 ---
 
-<section class="w-full !min-h-[700px] flex flex-col items-center justify-center">
+<section class="w-full min-h-[600px] flex flex-col items-center justify-center !py-24" id={id}>
   <slot id={id} title={title} />
 </section>
