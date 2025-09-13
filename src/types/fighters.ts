@@ -66,6 +66,9 @@ export interface Fighters {
   flag: string
   gallery?: boolean
   versus: fighterId
+  combat: string
+  fighter: string
+  contender: string
   socials: Socials[]
   clips: Clips[]
   workout?: FighterWorkout
