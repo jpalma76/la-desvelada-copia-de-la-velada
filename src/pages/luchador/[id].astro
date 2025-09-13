@@ -5,6 +5,7 @@ import { FIGHTERS } from "@/consts/fighters";
 const { id, name } = Astro.params;
 
 const fighter = FIGHTERS.find((fighter) => fighter.id === id);
+
 export const prerender = false;
 
 import X from "@/assets/svg/x.svg";
@@ -133,8 +134,32 @@ import Kick from "@/assets/svg/kick.svg";
             }
           </div>
           
-          <div class="relative w-[90%] h-32 border-2  rounded-xl flex items-center justify-around">
+          <!-- combates -->
+          <div class="relative w-[90%] h-32 border-2  rounded-xl flex items-center justify-center gap-x-3 bg-pink-500/70">
             
+            <div class="w-20 h-auto">
+              <img
+                src={`/${fighter?.fighter}`}
+                alt={fighter?.name}
+                class="relative w-auto h-auto rounded-xl z-0"
+              />
+            </div>
+
+            <div class="w-28 h-auto">
+              <img
+                src={fighter?.combat}
+                alt="combate"
+                class="relative w-auto h-auto rounded-md z-10 rotate-x-15 -rotate-y-30"
+              />
+            </div>
+
+            <div class="w-20 h-auto">
+              <img
+                src={`/${fighter?.contender}`}
+                alt={fighter?.versus}
+                class="relative w-auto h-auto rounded-xl z-0"
+              />
+            </div>
           </div>
         </div>
       </div>
