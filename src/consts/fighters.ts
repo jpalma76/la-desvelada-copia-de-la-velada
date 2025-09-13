@@ -18,6 +18,9 @@ export const FIGHTERS: Fighters[] = [
     city: 'A Coruña, Galicia',
     flag: '/images/flags/es.webp',
     versus: 'rivaldios',
+    combat: "/images/versus/peereira-vs-rivaldios.webp",
+    fighter: "images/fighters/card-left/peereira.webp",
+    contender: "images/fighters/card-left/rivaldios.webp",
     socials: [
       {
         id: 'instagram',
@@ -90,6 +93,9 @@ export const FIGHTERS: Fighters[] = [
     gallery: true,
     flag: '/images/flags/es.webp',
     versus: 'gaspi',
+    combat: "/images/versus/perxitaa-vs-gaspi.webp",
+    fighter: "images/fighters/card-left/perxitaa.webp",
+    contender: "images/fighters/card-left/gaspi.webp",
     socials: [
       {
         id: 'instagram',
@@ -166,6 +172,9 @@ export const FIGHTERS: Fighters[] = [
     city: 'Palma, Mallorca',
     flag: '/images/flags/es.webp',
     versus: 'roro',
+    combat: "/images/versus/abby-vs-roro.webp",
+    fighter: "images/fighters/card-left/abby.webp",
+    contender: "images/fighters/card-left/roro.webp",
     socials: [
       {
         id: 'instagram',
@@ -238,6 +247,9 @@ export const FIGHTERS: Fighters[] = [
     city: 'Barcelona, Cataluña',
     flag: '/images/flags/es.webp',
     versus: 'abby',
+    combat: "/images/versus/abby-vs-roro.webp",
+    fighter: "images/fighters/card-right/roro.webp",
+    contender: "images/fighters/card-right/abby.webp",
     socials: [
       {
         id: 'instagram',
@@ -294,6 +306,9 @@ export const FIGHTERS: Fighters[] = [
     city: 'Buenos Aires',
     flag: '/images/flags/ar.webp',
     versus: 'perxitaa',
+    combat: "/images/versus/perxitaa-vs-gaspi.webp",
+    fighter: "images/fighters/card-right/gaspi.webp",
+    contender: "images/fighters/card-right/perxitaa.webp",
     socials: [
       {
         id: 'instagram',
@@ -363,6 +378,9 @@ export const FIGHTERS: Fighters[] = [
     city: 'Rosales, Culiacán',
     flag: '/images/flags/mx.webp',
     versus: 'peereira',
+    combat: "/images/versus/peereira-vs-rivaldios.webp",
+    fighter: "images/fighters/card-right/rivaldios.webp",
+    contender: "images/fighters/card-right/peereira.webp",
     socials: [
       {
         id: 'instagram',
@@ -424,6 +442,9 @@ export const FIGHTERS: Fighters[] = [
     city: 'San Sebastian, Guipúzcoa',
     flag: '/images/flags/es.webp',
     versus: 'carlos',
+    combat: "/images/versus/andoni-vs-carlos.webp",
+    fighter: "images/fighters/card-left/andoni.webp",
+    contender: "images/fighters/card-left/carlos.webp",
     socials: [
       {
         id: 'instagram',
@@ -481,6 +502,9 @@ export const FIGHTERS: Fighters[] = [
     city: 'Zaragoza, Aragón',
     flag: '/images/flags/es.webp',
     versus: 'tomas',
+    combat: "/images/versus/viruzz-vs-tomas.webp",
+    fighter: "images/fighters/card-left/viruzz.webp",
+    contender: "images/fighters/card-left/tomas.webp",
     gallery: true,
     socials: [
       {
@@ -553,6 +577,9 @@ export const FIGHTERS: Fighters[] = [
     city: 'Monterrey, Nuevo León',
     flag: '/images/flags/mx.webp',
     versus: 'arigeli',
+    combat: "/images/versus/alana-vs-arigeli.webp",
+    fighter: "images/fighters/card-left/alana.webp",
+    contender: "images/fighters/card-left/arigeli.webp",
     socials: [
       {
         id: 'instagram',
@@ -616,6 +643,9 @@ export const FIGHTERS: Fighters[] = [
     city: 'Alhama de Murcia, Murcia',
     flag: '/images/flags/es.webp',
     versus: 'westcol',
+    combat: "/images/versus/grefg-vs-westcol.webp",
+    fighter: "images/fighters/card-left/grefg.webp",
+    contender: "images/fighters/card-left/westcol.webp",
     bio: 'Un coloso de la creación de contenido, David Cánovas ‘TheGrefg’ ha pasado de sus comienzos subiendo gameplays a convertirse en un creador total. Copropietario de una de las grandes entidades de eSports, Team Heretics, organiza desde 2022 los Premios Esland que reconocen a los mejores creadores hispanohablantes. Para la historia queda su presentación de skin en Fortnite, que reunió en Twitch a casi 2,5 millones de espectadores, una cifra que solo las Veladas II, III y IV han podido superar. El presidente de los Saiyans FC de la Kings League viaja, prueba comida, juega a videojuegos, trabaja en un cambio físico que ya es brutal… y que puede ser clave para llevarse el cinturón.',
     socials: [
       {
@@ -680,6 +710,9 @@ export const FIGHTERS: Fighters[] = [
     gallery: true,
     city: 'Ciudad Bolívar, Antioquia',
     versus: 'grefg',
+    combat: "/images/versus/grefg-vs-westcol.webp",
+    fighter: "images/fighters/card-right/westcol.webp",
+    contender: "images/fighters/card-right/grefg.webp",
     bio: 'El colombiano Luis Villa, Westcol, es uno de los streamers más populares y exitosos de Latinoamérica. Presidente junto al rapero Arcángel de West Santos FC de la Kings League Américas, su comunidad y números hablan por sí solos. Con contenido variado, incluyendo videojuegos y charlas con sus seguidores, entrevistas, etc, ha organizado hasta su propia velada de boxeo: la exitosa Stream Fighters. Recientemente se ha adentrado en el mundo de la música, colaborando con Beéle, Blessd u Ovy On The Drums en éxitos mundiales como Soltera y La Plena. Polémico y amante de la buena vida, la expectación es máxima por seguir su preparación para la gran cita.',
     socials: [
       {
@@ -745,6 +778,9 @@ export const FIGHTERS: Fighters[] = [
     gallery: true,
     city: 'Barcelona, Cataluña',
     versus: 'alana',
+    combat: "/images/versus/alana-vs-arigeli.webp",
+    fighter: "images/fighters/card-right/arigeli.webp",
+    contender: "images/fighters/card-right/alana.webp",
     socials: [
       {
         id: 'instagram',
@@ -809,6 +845,9 @@ export const FIGHTERS: Fighters[] = [
     gallery: true,
     city: 'Buenos Aires',
     versus: 'viruzz',
+    combat: "/images/versus/viruzz-vs-tomas.webp",
+    fighter: "images/fighters/card-right/tomas.webp",
+    contender: "images/fighters/card-right/viruzz.webp",
     socials: [
       {
         id: 'instagram',
@@ -877,6 +916,9 @@ export const FIGHTERS: Fighters[] = [
     flag: '/images/flags/mx.webp',
     city: 'Monterrey, Nuevo León',
     versus: 'andoni',
+    combat: "/images/versus/andoni-vs-carlos.webp",
+    fighter: "images/fighters/card-right/carlos.webp",
+    contender: "images/fighters/card-right/andoni.webp",
     socials: [
       {
         id: 'instagram',
