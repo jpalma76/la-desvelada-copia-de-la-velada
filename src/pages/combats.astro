@@ -1,85 +1,58 @@
 ---
 import { COMBATS } from "@/consts/combats";
 import Layout from "@/layouts/Layout.astro";
+import { FIGHTERS } from "@/consts/fighters";
 ---
 
 <Layout>
   <section
-    class="relative w-[100%] min-h-screen flex flex-col justify-start items-center !mt-28 text-center"
+    class="relative w-[100%] min-h-screen flex flex-col items-center bg-[url('/images/hero.webp')] bg-cover bg-center bg-no-repeat mask-fade-bottom !mb-16"
   >
-    <h2 class="max-sm:text-3xl text-6xl text-white italic font-bold mb-24">Combates</h2>
+    <h3 class="relative text-center text-4xl text-white font-semibold !my-16">
+      Combates
+    </h3>
 
-    <div class="w-[100%] min-h-[700px] flex flex-col mx-auto mb-36">
+    <div
+      class="relative w-[80%] min-h-screen grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto my-16"
+    >
       {
-        COMBATS.map((combat) => (
-          <div class="relative w-[100%] flex flex-row items-center justify-center min-h-[600px] max-sm:gap-x-24 gap-x-36 my-24">
-            {/* BOXER LEFT */}
-            <div class="relative flex flex-col items-center justify-center z-10">
-              {/* IMAGEN-LUCHADOR */}
-              <img
-                aria-label={`Imagen de ${combat.fighter1}`}
-                class="size-boxer rounded-2xl z-10"
-                data-id={`hero-text-${combat.id}`}
-                src={`/images/fighters/big/${combat.fighter1}.webp`}
-                alt={`Tarjeta del boxeador ${combat.fighter1}`}
-              />
-              <div class="relative w-full h-auto flex justify-center items-center -top-10 z-20">
-                {/* NOMBRE LUCHADOR */}
-                <img
-                    aria-label={`Nombre de ${combat.fighter1}`}
-                    data-id={`hero-text-${combat.id}`}
-                    src={`/images/fighters/names/${combat.fighter1}.webp`}
-                    alt={`Nombre de ${combat.fighter1}`}
-                    class="size-name mx-auto"
-                />
+        COMBATS.map((combat) => {
+          const fighter1 = FIGHTERS.find((f) => f.id === combat.fighter1);
+          const fighter2 = FIGHTERS.find((f) => f.id === combat.fighter1);
+          return (
+            <div
+              class="relative w-full min-h-[230px] bg-pink-400/50 border-2 text-white rounded-3xl flex flex-col !p-4 !px-6"
+            >
+              <h4 class="text-center text-2xl mb-4">{combat.title}</h4>
+              <div class="w-full h-auto flex items-center justify-around gap-x-4">
+                <div class="w-32 h-auto">
+                  <img
+                    src={fighter1?.fighter}
+                    alt={fighter1?.name}
+                    class="relative w-24 h-auto rounded-xl z-0"
+                  />
+                </div>
+                <!-- imagen versus -->
+                <div class="w-auto h-24">
+                  <img
+                    src={fighter1?.combat}
+                    alt="Versus"
+                    class="relative w-auto h-24 rounded-md z-10 rotate-x-15 -rotate-y-30"
+                  />
+                </div>
+                <!-- Imagen contendiente -->
+                <div class="w-32 h-auto">
+                  <img
+                    src={fighter2?.contender}
+                    alt={combat.fighter2}
+                    class="relative w-24 h-auto rounded-xl z-0"
+                  />
+                </div>
               </div>
             </div>
-
-            {/* VERSUS IMAGE */}
-            <img
-              class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80px] h-auto z-20 pointer-events-none -rotate-12"
-              src="/images/versus.webp"
-              alt="Imagen de versus"
-              loading="lazy"
-              style="max-width: 30vw;"
-            />
-
-            {/* BOXER RIGHT */}
-            <div class="relative flex flex-col items-center justify-center">
-              {/* IMAGEN-LUCHADOR */}
-              <img
-                aria-label={`Imagen de ${combat.fighter2}`}
-                class="size-boxer rounded-2xl z-10"
-                data-id={`hero-text-${combat.id}`}
-                src={`/images/fighters/big/${combat.fighter2}.webp`}
-                alt={`Tarjeta del boxeador ${combat.fighter2}`}
-              />
-
-              <div class="relative flex flex-col items-center justify-center -top-10 z-20">
-                {/* NOMBRE LUCHADOR */}
-                <img
-                    aria-label={`Nombre de ${combat.fighter2}`}
-                    data-id={`hero-text-${combat.id}`}
-                    src={`/images/fighters/names/${combat.fighter2}.webp`}
-                    alt={`Nombre de ${combat.fighter2}`}
-                    class="size-name mx-auto"
-                />
-              </div>
-            </div>
-          </div>
-        ))
+          );
+        })
       }
     </div>
   </section>
 </Layout>
-
-<style>
-  .size-boxer {
-    width: auto;
-    height: 230px;
-  }
-  .size-name {
-    width: auto;
-    height: 35px;
-  }
-</style>
