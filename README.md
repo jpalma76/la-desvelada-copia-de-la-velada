@@ -15,3 +15,5 @@ rediseñar esas partes, logrando un diseño más ordenado.
 
 ![alt text](image-3.png)
 
+![alt text](image-4.png)
+
