@@ -35,6 +35,7 @@ export const prerender = false;
                     src={fighter1?.fighter}
                     alt={fighter1?.name}
                     class="relative w-24 h-auto rounded-xl hover:scale-125 transition-all duration-300"
+                    fetchpriority="high"
                   />
                 </div>
 
@@ -53,6 +54,7 @@ export const prerender = false;
                     src={fighter2?.contender}
                     alt={combat.fighter2}
                     class="relative w-24 h-auto rounded-xl hover:scale-125 transition-all duration-300"
+                    fetchpriority="high"
                   />
                 </div>
               </div>
