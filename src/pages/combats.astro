@@ -1,54 +1,62 @@
 ---
-import { COMBATS } from "@/consts/combats";
 import Layout from "@/layouts/Layout.astro";
+import { COMBATS } from "@/consts/combats";
 import { FIGHTERS } from "@/consts/fighters";
+
+export const prerender = false;
 ---
 
 <Layout>
-  <section
-    class="relative w-[100%] min-h-screen flex flex-col items-center bg-[url('/images/hero.webp')] bg-cover bg-center bg-no-repeat mask-fade-bottom !mb-16"
-  >
+  <section class="relative w-[100%] min-h-screen flex flex-col items-center bg-[url('/images/hero.webp')] bg-cover bg-center bg-no-repeat mask-fade-bottom !pb-16">
+    
     <h3 class="relative text-center text-4xl text-white font-semibold !my-16">
       Combates
     </h3>
 
-    <div
-      class="relative w-[80%] min-h-screen grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto my-16"
-    >
+    <div class="relative w-[80%] min-h-screen grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto mt-16 mb-20">
       {
         COMBATS.map((combat) => {
-          const fighter1 = FIGHTERS.find((f) => f.id === combat.fighter1);
-          const fighter2 = FIGHTERS.find((f) => f.id === combat.fighter1);
+          let fighter1 = FIGHTERS.find((f) => f.id === combat.fighter1);
+          let fighter2 = FIGHTERS.find((f) => f.id === combat.fighter1);
           return (
-            <div
-              class="relative w-full min-h-[230px] bg-pink-400/50 border-2 text-white rounded-3xl flex flex-col !p-4 !px-6"
-            >
-              <h4 class="text-center text-2xl mb-4">{combat.title}</h4>
-              <div class="w-full h-auto flex items-center justify-around gap-x-4">
-                <div class="w-32 h-auto">
+            <div class="relative w-full min-h-[210px] bg-pink-400/50 border-2 text-white rounded-3xl flex flex-col items-center !p-4 !px-6">
+              <a 
+                href="https://www.youtube.com" 
+                target="_blank" 
+                class="text-center w-[280px] mx-auto text-2xl mb-4 hover:text-amber-400/70 hover:scale-105 transition-all duration-300 text-medium boeder-2 rounded-xl bg-pink-400/60 py-2 px-4"
+              >
+                {combat.title}
+              </a>
+              
+              <div class="w-full h-auto flex items-center justify-center gap-x-4">
+                
+                <div class="w-32 h-auto z-0">
                   <img
                     src={fighter1?.fighter}
                     alt={fighter1?.name}
-                    class="relative w-24 h-auto rounded-xl z-0"
+                    class="relative w-24 h-auto rounded-xl hover:scale-125 transition-all duration-300"
                   />
                 </div>
+
                 <!-- imagen versus -->
-                <div class="w-auto h-24">
+                <div class="w-auto h-24 z-10">
                   <img
                     src={fighter1?.combat}
                     alt="Versus"
-                    class="relative w-auto h-24 rounded-md z-10 rotate-x-15 -rotate-y-30"
+                    class="relative w-auto h-24 rounded-md rotate-x-24 -rotate-y-24 hover:-rotate-x-24 hover:-rotate-y-24 transition-all duration-300"
                   />
                 </div>
+                
                 <!-- Imagen contendiente -->
-                <div class="w-32 h-auto">
+                <div class="w-32 h-auto z-0">
                   <img
                     src={fighter2?.contender}
                     alt={combat.fighter2}
-                    class="relative w-24 h-auto rounded-xl z-0"
+                    class="relative w-24 h-auto rounded-xl hover:scale-125 transition-all duration-300"
                   />
                 </div>
               </div>
+
             </div>
           );
         })
