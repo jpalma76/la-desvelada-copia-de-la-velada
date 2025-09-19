@@ -3,4 +3,5 @@ export interface Combat {
   title: string
   fighter1: string
   fighter2: string
+  url: string
 }
