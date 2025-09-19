@@ -7,13 +7,11 @@ por el hecho de que no están todos los videos del proceso completo es que hubie
 y programzarlas en un principio tratando de igualarlo lo más que se pueda a la página oficial, pero eso me llevó a 
 rediseñar esas partes, logrando un diseño más ordenado.
 
-![alt text](image.png)
+![principal_page](https://github.com/user-attachments/assets/ec8aac9d-148e-408a-9485-dc043baaeff5)
 
-![alt text](image-1.png)
+![page_combats](https://github.com/user-attachments/assets/6ade7c8a-c40d-490c-b94b-8fc7db4fb55d)
 
-![alt text](image-2.png)
+![page_fighter_abby](https://github.com/user-attachments/assets/7a4837aa-0f9f-4254-8675-d3fefce409f7)
 
-![alt text](image-3.png)
-
-![alt text](image-4.png)
+![page_fighter_roro](https://github.com/user-attachments/assets/bf596a5d-e8de-4d43-bcf8-96a81b5fe5ca)
 
