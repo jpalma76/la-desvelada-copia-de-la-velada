@@ -14,20 +14,23 @@ import Youtube from "@/assets/svg/youtube.svg";
 import TikTok from "@/assets/svg/tiktok.svg";
 import Twitch from "@/assets/svg/twitch.svg";
 import Kick from "@/assets/svg/kick.svg";
-
 ---
 
 <Layout>
   <!-- SECCION LUCHADOR W-100% -->
-  <section id="luchador" class="absolute inset-0 w-full min-h-screen background-image-theme mask-fade-bottom-10 z-0">
-
+  <section
+    id="luchador"
+    class="absolute inset-0 w-full min-h-screen background-image-theme mask-fade-bottom-10 z-0"
+  >
     <!-- contenedor principal -->
-    <div class="principal-content w-full min-h-screen flex justify-center gap-x-7 !my-22">
-
+    <div
+      class="principal-content w-full min-h-screen flex justify-center gap-x-7 !my-22"
+    >
       <!-- side left -->
       <div class="side-left w-[31%] min-h-[85vh] items-start flex !gap-x-6">
-        
-        <div class="w-[80%] h-[80%] !ml-12 flex flex-col items-center justify-center">
+        <div
+          class="w-[80%] h-[80%] !ml-12 flex flex-col items-center justify-center"
+        >
           <!-- Luchador -->
           <img
             aria-label={`Imagen de ${name}`}
@@ -48,9 +51,13 @@ import Kick from "@/assets/svg/kick.svg";
       </div>
 
       <!-- central -->
-      <div class="central-content relative w-[35.14%] min-h-[85vh] flex flex-col justify-start gap-y-5">
+      <div
+        class="central-content relative w-[35.14%] min-h-[85vh] flex flex-col justify-start gap-y-5"
+      >
         <!-- datos del boxeador -->
-        <div class="relative w-[70%] h-[200px] border-2 text-white rounded-xl flex flex-col !py-5 !px-7 bg-pink-400/70 gap-y-[3px] text-sm">
+        <div
+          class="relative w-[70%] h-[200px] border-2 text-white rounded-xl flex flex-col !py-5 !px-7 bg-pink-400/70 gap-y-[3px] text-sm"
+        >
           <p><label>Nickname</label> : {fighter?.name}</p>
           <p><label>Nombre</label> : <span>{fighter?.realName}</span></p>
           <p><label>Altura</label> : <span>{fighter?.height} mt</span></p>
@@ -69,71 +76,80 @@ import Kick from "@/assets/svg/kick.svg";
         </div>
 
         <!-- biobliografía -->
-        <div class="relative w-full min-h-[160px] bg-pink-400/50 border-2 text-white rounded-xl flex flex-col !p-4 !px-6">
+        <div
+          class="relative w-full min-h-[160px] bg-pink-400/50 border-2 text-white rounded-xl flex flex-col !p-4 !px-6"
+        >
           <p class="text-xs md:text-[14px]">{fighter?.bio}</p>
         </div>
 
         <!-- Redes Sociales -->
-        <div class="relative w-[85%] h-[90px] text-white flex items-center justify-around rounded-xl z-20 opacity-100">
-          {
-            fighter?.socials.map((social, index) => (
-              <div class="w-[70px] h-[85px] flex flex-col items-center border-2 rounded-md bg-pink-500/50 hover:scale-125 opacity-100">
-                <a
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  class="w-full h-full flex items-center justify-center"
-                >
-                  {
-                    // @ts-ignore
-                    social.id === "x" && <X class="size-6" />
-                  }
-                  {
-                    // @ts-ignore
-                    social.id === "instagram" && (
-                      <Instagram class="size-6" />
-                    )
-                  }
-                  {
-                    // @ts-ignore
-                    social.id === "youtube" && <Youtube class="size-6" />
-                  }
-                  {
-                    // @ts-ignore
-                    social.id === "tiktok" && <TikTok class="size-6" />
-                  }
-                  {
-                    // @ts-ignore
-                    social.id === "twitch" && <Twitch class="size-6" />
-                  }
-                  {
-                    // @ts-ignore
-                    social.id === "kick" && <Kick class="size-6" />
-                  }
-                </a>
-                <span>{social?.followers}</span>
-              </div>
-            ))
-          }
+        <div class="relative w-full min-h-[80px] flex justify-center items-center">
+          <div
+            class="relative w-[85%] h-[80px] text-white flex items-center justify-around rounded-xl z-20 opacity-100 gap-x-2"
+          >
+            {
+              fighter?.socials.map((social, index) => (
+                <div class="w-[70px] h-[85px] flex flex-col items-center border-2 rounded-md bg-pink-500/50  hover:-translate-y-3 transition-all transition-duration-3 opacity-100">
+                  <a
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    class="w-full h-full flex items-center justify-center"
+                  >
+                    {
+                      // @ts-ignore
+                      social.id === "x" && <X class="size-6" />
+                    }
+                    {
+                      // @ts-ignore
+                      social.id === "instagram" && <Instagram class="size-6" />
+                    }
+                    {
+                      // @ts-ignore
+                      social.id === "youtube" && <Youtube class="size-6" />
+                    }
+                    {
+                      // @ts-ignore
+                      social.id === "tiktok" && <TikTok class="size-6" />
+                    }
+                    {
+                      // @ts-ignore
+                      social.id === "twitch" && <Twitch class="size-6" />
+                    }
+                    {
+                      // @ts-ignore
+                      social.id === "kick" && <Kick class="size-6" />
+                    }
+                  </a>
+                  <span>{social?.followers}</span>
+                </div>
+              ))
+            }
+          </div>
         </div>
       </div>
 
       <!-- side right -->
-      <div class="side-right w-[27.1%] h-[80vh] bg-pink-400/40 border-2 border-white rounded-xl flex flex-col items-center text-white !gap-y-2">
-        
-        <div class="w-[90%] h-[70%] flex flex-col justify-center text-white gap-y-3 !mt-3">
+      <div
+        class="side-right w-[27.1%] h-[80vh] bg-pink-400/40 border-2 border-white rounded-xl flex flex-col items-center text-white !gap-y-2"
+      >
+        <div
+          class="w-[90%] h-[70%] flex flex-col justify-center text-white gap-y-3 !mt-3"
+        >
           {
-            fighter?.clips.map(clip => (
+            fighter?.clips.map((clip) => (
               <div class="w-full min-h-[13%] border-2 flex items-center justify-center rounded-tl-xl rounded-br-xl bg-pink-400/50 text-sm !px-3 !py-2 italic">
                 <p>"{clip?.text}"</p>
               </div>
             ))
           }
         </div>
-        
+
         <!-- combates -->
-        <div class="relative w-[90%] h-32 border-2  rounded-xl flex items-center justify-center gap-x-3 !mb-[10%] bg-pink-400/60">
+        <div
+          class="relative w-[90%] h-32 border-2 rounded-xl flex items-center justify-center gap-x-3 !mb-[10%] bg-pink-400/60"
+        >
           <!-- Imagen luchador -->
           <div class="w-20 h-auto">
             <img
@@ -160,8 +176,6 @@ import Kick from "@/assets/svg/kick.svg";
           </div>
         </div>
       </div>
-
     </div>
-
   </section>
 </Layout>
