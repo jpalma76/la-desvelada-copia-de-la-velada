@@ -32,12 +32,13 @@ const { id, name } = Astro.props;
     boxerCards.forEach((singleBoxerCard) => {
       singleBoxerCard.addEventListener("mouseenter", () => {
           const id = singleBoxerCard.getAttribute("data-id");
-  
-          // Dispatch a custom event to notify a boxerCardId is hovered
-          const event = new CustomEvent("boxer-card-hovered", {
-            detail: { id },
-          });
-          document.dispatchEvent(event);
+          if(id) {
+            // Dispatch a custom event to notify a boxerCardId is hovered
+            const event = new CustomEvent("boxer-card-hovered", {
+              detail: { id },
+            });
+            document.dispatchEvent(event);
+          }
       });
 
       singleBoxerCard.addEventListener("mouseleave", () => {
