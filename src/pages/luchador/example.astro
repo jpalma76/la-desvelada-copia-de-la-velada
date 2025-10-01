@@ -1,0 +1,235 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import { FIGHTERS } from "@/consts/fighters";
+const { id, name } = Astro.params;
+
+const fighter = FIGHTERS.find((fighter) => fighter.id === id);
+
+export const prerender = false;
+
+import X from "@/assets/svg/x.svg";
+import Instagram from "@/assets/svg/instagram.svg";
+import Youtube from "@/assets/svg/youtube.svg";
+import TikTok from "@/assets/svg/tiktok.svg";
+import Twitch from "@/assets/svg/twitch.svg";
+import Kick from "@/assets/svg/kick.svg";
+---
+
+<Layout>
+  <!-- SECCION LUCHADOR W-100% -->
+  <section
+    id="luchador"
+    class="absolute inset-0 w-full min-h-screen background-image-theme mask-fade-bottom-10 z-0"
+  >
+    <!-- contenedor principal -->
+    <div
+      class="principal-content w-full min-h-screen flex justify-center gap-x-7 !my-22"
+    >
+      <!-- side left -->
+      <div class="side-left w-[31%] min-h-[85vh] items-start flex !gap-x-6">
+        <div
+          class="w-[80%] h-[80%] !ml-12 flex flex-col items-center justify-center"
+        >
+          <!-- Luchador -->
+          <img
+            aria-label={`Imagen de ${name}`}
+            data-id={`hero-image-${id}`}
+            src={`/images/fighters/big/${id}.webp`}
+            alt={fighter?.name}
+            class="relative w-auto h-[500px] mx-10 mb-24 z-0 hover:scale-125 transition-[.3s] mask-fade-bottom"
+          />
+          <!-- Nombre -->
+          <img
+            aria-label={`Nombre de ${name}`}
+            data-id={`hero-text-${id}`}
+            src={`/images/fighters/text/${id}.webp`}
+            alt={"Nombre de " + name}
+            class="absolute h-auto w-[25%] z-10"
+          />
+        </div>
+      </div>
+
+      <!-- central -->
+      <div class="central-content relative w-[35.14%] min-h-[85vh] flex flex-col justify-start gap-y-5">
+        <!-- datos del boxeador -->
+        <div class="relative w-[70%] h-[200px] border-2 text-white rounded-xl flex flex-col !py-5 !px-7 bg-pink-400/70 gap-y-[3px] text-sm">
+          <p><label>Nickname</label> : {fighter?.name}</p>
+          <p><label>Nombre</label> : <span>{fighter?.realName}</span></p>
+          <p><label>Altura</label> : <span>{fighter?.height} mt</span></p>
+          <p><label>Edad</label> : <span>{fighter?.age} años</span></p>
+          <p><label>Peso</label> : <span>{fighter?.weight} Kg.</span></p>
+          <div class="w-full flex items-center gap-x-5 my-4">
+            <div class="w-[60px] h-auto flex items-center">
+              <img
+                src={fighter?.flag}
+                alt={fighter?.country}
+                class="flex rounded-xs"
+              />
+            </div>
+            <span class="w-full text-sm">{fighter?.city}</span>
+          </div>
+
+        </div>
+
+        <!-- biobliografía -->
+        <div
+          class="relative w-full min-h-[160px] bg-pink-400/50 border-2 text-white rounded-xl flex flex-col !p-4 !px-6"
+        >
+          <p class="text-xs md:text-[14px]">{fighter?.bio}</p>
+        </div>
+
+        <!-- Redes Sociales -->
+        <div class="relative w-full min-h-[80px] flex justify-center items-center">
+          <div
+            class="relative w-[85%] h-[80px] text-white flex items-center justify-around rounded-xl z-20 opacity-100 gap-x-2"
+          >
+            {
+              fighter?.socials.map((social, index) => (
+                <div class="w-[70px] h-[85px] flex flex-col items-center border-2 rounded-md bg-pink-500/50  hover:-translate-y-2 transition-all transition-duration-3 opacity-100">
+                  <a
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    class="w-full h-full flex items-center justify-center"
+                  >
+                    {
+                      // @ts-ignore
+                      social.id === "x" && <X class="size-6" />
+                    }
+                    {
+                      // @ts-ignore
+                      social.id === "instagram" && <Instagram class="size-6" />
+                    }
+                    {
+                      // @ts-ignore
+                      social.id === "youtube" && <Youtube class="size-6" />
+                    }
+                    {
+                      // @ts-ignore
+                      social.id === "tiktok" && <TikTok class="size-6" />
+                    }
+                    {
+                      // @ts-ignore
+                      social.id === "twitch" && <Twitch class="size-6" />
+                    }
+                    {
+                      // @ts-ignore
+                      social.id === "kick" && <Kick class="size-6" />
+                    }
+                  </a>
+                  <span>{social?.followers}</span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- side right -->
+      <div
+        class="side-right w-[27.1%] h-[80vh] bg-pink-400/40 border-2 border-white rounded-xl flex flex-col items-center text-white !gap-y-2"
+      >
+        <div
+          class="w-[90%] h-[70%] flex flex-col justify-center text-white gap-y-3 !mt-3"
+        >
+          {
+            fighter?.clips.map((clip) => (
+              <div class="w-full min-h-[13%] border-2 flex items-center justify-center rounded-tl-xl rounded-br-xl bg-pink-400/50 text-sm !px-3 !py-2 italic">
+                <p>"{clip?.text}"</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <!-- combates -->
+        <div
+          class="relative w-[90%] h-32 border-2 rounded-xl flex items-center justify-center gap-x-3 !mb-[10%] bg-pink-400/60"
+        >
+          <!-- Imagen luchador -->
+          <div class="w-20 h-auto">
+            <img
+              src={fighter?.fighter}
+              alt={fighter?.name}
+              class="relative w-auto h-auto rounded-xl z-0"
+            />
+          </div>
+          <!-- imagen versus -->
+          <div class="w-28 h-auto">
+            <img
+              src={fighter?.combat}
+              alt="combate"
+              class="relative w-auto h-auto rounded-md z-10 rotate-x-15 -rotate-y-30"
+            />
+          </div>
+          <!-- Imagen contendiente -->
+          <div class="w-20 h-auto">
+            <img
+              src={fighter?.contender}
+              alt={fighter?.versus}
+              class="relative w-auto h-auto rounded-xl z-0"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style is:inline>
+  @media (max-width:1200px) {
+    .section-fighter {
+      height: auto;
+      width: 100%;
+    }
+    .principal-container {
+      height: 1200px;
+      gap: 2rem !important;
+      width: 100%;
+    }
+    .content-double {
+      width: 80%;
+    }
+    .side-right {
+      flex-direction: row;
+      width: 80%;
+      height: 400px;
+      padding: 2rem;
+      align-items: center;
+    }
+    .frases-container {
+      height: 70%;
+      gap: 2rem;
+    }
+    .frases {
+      width: 80%;
+    }
+    .combates {
+      width: 70%;
+      height: 120px;
+    }
+  }
+
+  @media (min-width: 1050px) {
+    .central {
+
+    }
+  }
+
+  @media (max-width:768px) {
+    .section-fighter {
+      height: 1800px;
+      width:90%;
+    }
+    .principal-container {
+      height: 1800px;
+      width: 90%;
+      justify-content: center;
+    }
+    .content-double {
+      height: 1200px;
+    }
+
+  }
+</style>
