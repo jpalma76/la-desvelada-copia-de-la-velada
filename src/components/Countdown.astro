@@ -1,36 +1,68 @@
 ---
 import SectionTitle from "./SectionTitle.astro";
-const TIMESTAMP_END = 1761264420000;
+const TIMESTAMP_END = 1761275220000;
 
+import X from "@/assets/svg/x.svg";
+import Instagram from "@/assets/svg/instagram.svg";
+import GitHub from "@/assets/svg/github.svg";
 ---
 
-<section class="w-full !min-h-[650px] my-32 flex flex-col gap-y-10 justify-center items-center">
+<section
+  class="w-full !min-h-[650px] my-32 flex flex-col gap-y-10 justify-center items-center"
+>
   <SectionTitle title="Cuenta regresiva para el Evento..." />
 
-  <div class="w-mfull gap-x-2 flex flex-row" data-date={TIMESTAMP_END}>
-    <div class="boxer-date">
-      <span class="text-5xl font-normal text-center" data-days></span>
-      <span class="text-[9px] text-center">dias</span>
-    </div>
+  <div class="counter flex flex-col justify-center items-center">
+    <div class="w-mfull gap-x-2 flex flex-row" data-date={TIMESTAMP_END}>
+      <div class="boxer-date">
+        <span class="text-5xl font-normal text-center" data-days></span>
+        <span class="text-[9px] text-center">dias</span>
+      </div>
 
-    <div class="boxer-date">
-      <span class="text-5xl font-normal text-center" data-hours></span>
-      <span class="text-[9px] text-center">Horas</span>
-    </div>
+      <div class="boxer-date">
+        <span class="text-5xl font-normal text-center" data-hours></span>
+        <span class="text-[9px] text-center">Horas</span>
+      </div>
 
-    <div class="boxer-date">
-      <span class="text-5xl font-normal text-center" data-minutes></span>
-      <span class="text-[9px] text-center">Minutos</span>
+      <div class="boxer-date">
+        <span class="text-5xl font-normal text-center" data-minutes></span>
+        <span class="text-[9px] text-center">Minutos</span>
+      </div>
+      <div class="boxer-date">
+        <span class="text-5xl font-normal text-center" data-seconds></span>
+        <span class="text-[9px] text-center">Segundos</span>
+      </div>
     </div>
-    <div class="boxer-date">
-      <span class="text-5xl font-normal text-center" data-seconds></span>
-      <span class="text-[9px] text-center">Segundos</span>
-    </div>
+    <span aria-hidden="true" class="mt-1 text-xl italic"
+      >...para mi cumpleaños 🥳🥳🥳</span
+    >
   </div>
 
-  <span aria-hidden="true" class="mt-1 text-xl italic"
-    >...para mi cumpleaños 🥳🥳🥳</span
-  >
+  <div class="saludo hidden"></div>
+
+  <div class="rrss hidden gap-x-3 mx-auto justify-center items-center">
+    <a
+      href="https://x.com/jpalma76"
+      target="_blank"
+      class="inline-block hover:scale-125"
+    >
+      <X />
+    </a>
+    <a
+      href="https://instagram.com/jpalma76"
+      target="_blank"
+      class="inline-block hover:scale-125"
+    >
+      <Instagram />
+      <a
+        href="https://github.com/jpalma76/la-desvelada-copia-de-la-velada"
+        target="_blank"
+        class="inline-block hover:scale-125"
+      >
+        <GitHub />
+      </a>
+    </a>
+  </div>
 </section>
 
 <script is:inline define:vars={{ timestamp: TIMESTAMP_END }}>
@@ -55,26 +87,47 @@ const TIMESTAMP_END = 1761264420000;
       const now = Date.now();
       const diff = date - now;
 
+      const counter = document.querySelector(".counter");
+      const saludo = document.querySelector(".saludo");
+      const rrss = document.querySelector(".rrss");
+
       if (diff <= 0) {
-        if ($days) $days.textContent = '00';
-        if ($hours) $hours.textContent = '00';
-        if ($minutes) $minutes.textContent = '00';
-        if ($seconds) $seconds.textContent = '00';
+        if ($days) $days.textContent = "00";
+        if ($hours) $hours.textContent = "00";
+        if ($minutes) $minutes.textContent = "00";
+        if ($seconds) $seconds.textContent = "00";
+
+        counter.classList.add("hidden");
+        saludo.classList.remove("hidden");
+        rrss.classList.remove("hidden");
+        rrss.classList.add("flex");
         return;
       }
 
-      if ($days) $days.textContent = Math.floor(diff / DAY).toString().padStart(2, '0');
-      if ($hours) $hours.textContent = Math.floor((diff % DAY) / HOUR).toString().padStart(2, '0');
-      if ($minutes) $minutes.textContent = Math.floor((diff % HOUR) / MINUTE).toString().padStart(2, '0');
-      if ($seconds) $seconds.textContent = Math.floor((diff % MINUTE) / SECOND).toString().padStart(2, '0');
+      if ($days)
+        $days.textContent = Math.floor(diff / DAY)
+          .toString()
+          .padStart(2, "0");
+      if ($hours)
+        $hours.textContent = Math.floor((diff % DAY) / HOUR)
+          .toString()
+          .padStart(2, "0");
+      if ($minutes)
+        $minutes.textContent = Math.floor((diff % HOUR) / MINUTE)
+          .toString()
+          .padStart(2, "0");
+      if ($seconds)
+        $seconds.textContent = Math.floor((diff % MINUTE) / SECOND)
+          .toString()
+          .padStart(2, "0");
     }
 
     // Actualizar inmediatamente
     updateCountdown();
-    
+
     // Configurar intervalo para actualizar cada segundo
     const interval = setInterval(updateCountdown, SECOND);
-    
+
     // Retornar función de limpieza
     return () => clearInterval(interval);
   }
@@ -83,31 +136,46 @@ const TIMESTAMP_END = 1761264420000;
   let cleanup = initCountdown();
 
   // Reiniciar el contador cuando la navegación SPA ocurra
-  document.addEventListener('astro:after-swap', () => {
+  document.addEventListener("astro:after-swap", () => {
     if (cleanup) cleanup();
     cleanup = initCountdown();
   });
 
   // Limpiar el intervalo cuando el componente se desmonte
-  document.addEventListener('astro:before-swap', () => {
+  document.addEventListener("astro:before-swap", () => {
     if (cleanup) cleanup();
   });
 </script>
 
 <style is:inline>
-  .boxer-date {
-    background-color: var(--color-theme-dark-date);
-    color: var(--color-theme-seashell);
-    border-radius: 3px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-    width: 5rem;
-    height: 4.5rem;
-    transform: skew(-0.03turn);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2px;
-  }
+   .boxer-date {
+      background-color: var(--color-theme-dark-date);
+      color: var(--color-theme-seashell);
+      border-radius: 3px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+      width: 5rem;
+      height: 4.5rem;
+      transform: skew(-0.03turn);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+   }
+
+   .saludo {
+      display: block;
+      width: 400px;
+      height: 400px;
+      background-image: url("/images/torta.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 1px solid #fff;
+      border-radius: 25px;
+      overflow: hidden;
+   }
+   .hidden {
+      display: none;
+   }
 </style>
