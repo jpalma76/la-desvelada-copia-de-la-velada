@@ -1,11 +1,17 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
+   "include": [
+    "src",
+    "astro.config.ts",
+    ".astro/types.d.ts", 
+    "**/*"
+  ],
   "exclude": ["dist"],
   "compilerOptions": {
-    "baseUrl": "./",
+    "moduleResolution": "bundler",
     "paths": {
-      "@/*": ["src/*"]
-    }
+      "@/*": ["./src/*"]
+    },
+    "types": ["astro/client"]
   }
 }
