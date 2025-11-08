@@ -5,18 +5,14 @@ import tailwindcss from '@tailwindcss/vite';
 
 import netlify from '@astrojs/netlify';
 
-// https://astro.build/config
 export default defineConfig({
-   output: 'server',
-
+  output: 'server',
   vite: {
     plugins: [tailwindcss()],
   },
-
   build: {
     inlineStylesheets: 'always',
   },
-
   adapter: netlify(),
   site: 'https://la-desvelada-v-sitio-no-oficial.netlify.app/'
 });
