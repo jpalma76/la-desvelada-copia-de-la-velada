@@ -11,7 +11,6 @@
     "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./src/*"]
-    },
-    "types": ["astro/client"]
+    }
   }
 }
