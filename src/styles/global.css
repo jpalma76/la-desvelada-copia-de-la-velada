@@ -1,18 +1,6 @@
 @import "tailwindcss";
 @plugin "@midudev/tailwind-animations";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html,
-body {
-  font-family: "Anisette", sans-serif;
-  font-display: swap;
-  background-color: var(--color-theme-tickle-me-pink);
-}
-
 @theme {
   --color-dark-magenta: #2a1f26;
   --font-fallback: "Adjusted Arial Fallback", system-ui, -apple-ystem,
