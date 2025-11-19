@@ -167,13 +167,15 @@ import Kick from "@/assets/svg/kick.svg";
             />
           </div>
           <!-- Imagen contendiente -->
-          <div class="w-20 h-auto">
-            <img
-              src={fighter?.contender}
-              alt={fighter?.versus}
-              class="relative w-auto h-auto rounded-xl z-0"
-            />
-          </div>
+           <a href={`/luchador/${fighter?.versus}`}>
+             <div class="w-20 h-auto">
+               <img
+                 src={fighter?.contender}
+                 alt={fighter?.versus}
+                 class="relative w-auto h-auto rounded-xl z-0"
+               />
+             </div>
+           </a>
         </div>
       </div>
     </div>
