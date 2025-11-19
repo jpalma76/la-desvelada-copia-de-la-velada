@@ -9,8 +9,7 @@ const SecondRowLeft = FIGHTERS.slice(6, 10);
 const SecondRowRight = FIGHTERS.slice(10);
 ---
 
-<section class="relative flex min-h-screen justify-center w-full" id="hero">
-  <div class="background-image-theme mask-fade-bottom w-full absolute inset-0"></div>
+<section class="relative flex min-h-screen justify-center w-full background-image-theme mask-fade-bottom" id="hero">
 
   <div class="absolute mt-24 z-10 w-full transparent flex justify-center items-center top-12">
     <p class="font-bold text-white/50 italic">
@@ -156,7 +155,7 @@ const SecondRowRight = FIGHTERS.slice(10);
       const customEvent = event as CustomEvent<{ id: string }>;
       const id = customEvent.detail.id;
 
-      // Si seldeccionas un luchador primero borras el boxeador que se muestra
+      // Si seleccionas un luchador primero borras el boxeador que se muestra
       if (currentFighterId) {
         $(`[data-id=hero-text-${currentFighterId}]`)?.classList.add("hidden");
         $(`[data-id=hero-image-${currentFighterId}]`)?.classList.add("hidden");
@@ -175,7 +174,7 @@ const SecondRowRight = FIGHTERS.slice(10);
       const customEvent = event as CustomEvent<{ id: string }>;
       const id = customEvent.detail.id;
 
-      // Si seldeccionas un luchador primero borras el boxeador que se muestra
+      // Si seleccionas un luchador primero borras el boxeador que se muestra
       if (currentFighterId) {
         $landing?.classList.remove("hidden");
         $(`[data-id=hero-text-${currentFighterId}]`)?.classList.add("hidden");
