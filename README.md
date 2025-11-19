@@ -1,16 +1,46 @@
-# Proyecto la Desvelada Web, copia de la Velada Web oficial de Ibai Llanos hecha por @midudev
+# Astro Starter Kit: Basics
 
-##La desvelada web
+```sh
+pnpm create astro@latest -- --template basics
+```
 
-la desvelada web es un proyecto personal que realicé copiado del proyecto de la Velada V que realizó @midudev, 
-por el hecho de que no están todos los videos del proceso completo es que hubieron partes que tuve que diseñarlas 
-y programzarlas en un principio tratando de igualarlo lo más que se pueda a la página oficial, pero eso me llevó a 
-rediseñar esas partes, logrando un diseño más ordenado.
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-![principal_page](https://github.com/user-attachments/assets/ec8aac9d-148e-408a-9485-dc043baaeff5)
+## 🚀 Project Structure
 
-![page_combats](https://github.com/user-attachments/assets/6ade7c8a-c40d-490c-b94b-8fc7db4fb55d)
+Inside of your Astro project, you'll see the following folders and files:
 
-![page_fighter_abby](https://github.com/user-attachments/assets/7a4837aa-0f9f-4254-8675-d3fefce409f7)
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src
+│   ├── assets
+│   │   └── astro.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   └── pages
+│       └── index.astro
+└── package.json
+```
 
-![page_fighter_roro](https://github.com/user-attachments/assets/bf596a5d-e8de-4d43-bcf8-96a81b5fe5ca)
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `pnpm install`             | Installs dependencies                            |
+| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
+| `pnpm build`           | Build your production site to `./dist/`          |
+| `pnpm preview`         | Preview your build locally, before deploying     |
+| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

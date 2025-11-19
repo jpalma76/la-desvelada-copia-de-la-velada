@@ -1,5 +1,6 @@
 @import "tailwindcss";
-@plugin "@midudev/tailwind-animations";
+
+@plugin '@midudev/tailwind-animations';
 
 @theme {
   --color-dark-magenta: #2a1f26;
