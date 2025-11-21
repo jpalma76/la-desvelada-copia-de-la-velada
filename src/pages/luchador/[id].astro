@@ -27,9 +27,9 @@ import Kick from "@/assets/svg/kick.svg";
       class="principal-content w-full min-h-screen flex justify-center gap-x-7 !my-22"
     >
       <!-- side left -->
-      <div class="side-left w-[31%] min-h-[85vh] items-start flex !gap-x-6">
+      <div class="side-left w-[31%] min-h-[90vh] items-start flex !gap-x-6">
         <div
-          class="w-[80%] h-[80%] !ml-12 flex flex-col items-center justify-center"
+          class="w-[80%] h-[90%] !ml-12 flex flex-col items-center justify-center"
         >
           <!-- Luchador -->
           <img
@@ -37,7 +37,7 @@ import Kick from "@/assets/svg/kick.svg";
             data-id={`hero-image-${id}`}
             src={`/images/fighters/big/${id}.webp`}
             alt={fighter?.name}
-            class="relative w-auto h-[500px] mx-10 mb-24 z-0 hover:scale-125 transition-[.3s] mask-fade-bottom"
+            class="relative w-auto h-[600px] mx-10 mb-24 z-0 hover:scale-125 transition-[.3s] mask-fade-bottom"
           />
           <!-- Nombre -->
           <img
@@ -56,7 +56,7 @@ import Kick from "@/assets/svg/kick.svg";
       >
         <!-- datos del boxeador -->
         <div
-          class="relative w-[70%] h-[200px] border-2 text-white rounded-xl flex flex-col !py-5 !px-7 bg-pink-400/70 gap-y-[3px] text-sm"
+          class="relative w-[100%] min-h-[180px] border-2 text-white rounded-xl flex flex-col !py-5 !px-7 bg-pink-400/70 gap-y-[3px] text-base min-2xl:text-xl"
         >
           <p><label>Nickname</label> : {fighter?.name}</p>
           <p><label>Nombre</label> : <span>{fighter?.realName}</span></p>
@@ -71,7 +71,7 @@ import Kick from "@/assets/svg/kick.svg";
                 class="flex rounded-xs"
               />
             </div>
-            <span class="w-full text-sm">{fighter?.city}</span>
+            <span class="w-full text-base min-2xl:text-xl">{fighter?.city}</span>
           </div>
         </div>
 
@@ -79,7 +79,7 @@ import Kick from "@/assets/svg/kick.svg";
         <div
           class="relative w-full min-h-[160px] bg-pink-400/50 border-2 text-white rounded-xl flex flex-col !p-4 !px-6"
         >
-          <p class="text-xs md:text-[14px]">{fighter?.bio}</p>
+          <p class="text-xs md:text-[14px] min-2xl:text-xl">{fighter?.bio}</p>
         </div>
 
         <!-- Redes Sociales -->
@@ -139,7 +139,7 @@ import Kick from "@/assets/svg/kick.svg";
         >
           {
             fighter?.clips.map((clip) => (
-              <div class="w-full min-h-[13%] border-2 flex items-center justify-center rounded-tl-xl rounded-br-xl bg-pink-400/50 text-sm !px-3 !py-2 italic">
+              <div class="w-full min-h-[13%] border-2 flex items-center justify-center rounded-tl-xl rounded-br-xl bg-pink-400/50 text-sm min-2xl:text-lg !px-3 !py-2 italic">
                 <p>"{clip?.text}"</p>
               </div>
             ))
