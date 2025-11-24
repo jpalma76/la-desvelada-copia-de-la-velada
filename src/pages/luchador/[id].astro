@@ -29,7 +29,7 @@ import Kick from "@/assets/svg/kick.svg";
       <!-- side left -->
       <div class="side-left w-[31%] min-h-[90vh] items-start flex !gap-x-6">
         <div
-          class="w-[80%] h-[90%] !ml-12 flex flex-col items-center justify-center"
+          class="w-[80%] h-[85dvh] !ml-12 flex flex-col items-center justify-center"
         >
           <!-- Luchador -->
           <img
@@ -37,7 +37,7 @@ import Kick from "@/assets/svg/kick.svg";
             data-id={`hero-image-${id}`}
             src={`/images/fighters/big/${id}.webp`}
             alt={fighter?.name}
-            class="relative w-auto h-[600px] mx-10 mb-24 z-0 hover:scale-125 transition-[.3s] mask-fade-bottom"
+            class="relative w-auto h-[500px] min-2xl:h-[600px] mx-10 mb-24 z-0 hover:scale-125 transition-[.3s] mask-fade-bottom"
           />
           <!-- Nombre -->
           <img
@@ -45,18 +45,18 @@ import Kick from "@/assets/svg/kick.svg";
             data-id={`hero-text-${id}`}
             src={`/images/fighters/text/${id}.webp`}
             alt={"Nombre de " + name}
-            class="absolute h-auto w-[25%] z-10"
+            class="absolute h-auto w-[27%]"
           />
         </div>
       </div>
 
       <!-- central -->
       <div
-        class="central-content relative w-[35.14%] min-h-[85vh] flex flex-col justify-start gap-y-5"
+        class="central-content relative w-[35.14%] min-h-[85dvh] flex flex-col justify-start gap-y-3 z-30"
       >
         <!-- datos del boxeador -->
         <div
-          class="relative w-[100%] min-h-[180px] border-2 text-white rounded-xl flex flex-col !py-5 !px-7 bg-pink-400/70 gap-y-[3px] text-base min-2xl:text-xl"
+          class="relative w-[100%] min-h-[120px] text-xs min-2xl:text-xl border text-white rounded-xl flex flex-col !py-3 !px-6 bg-pink-400/70"
         >
           <p><label>Nickname</label> : {fighter?.name}</p>
           <p><label>Nombre</label> : <span>{fighter?.realName}</span></p>
@@ -64,32 +64,32 @@ import Kick from "@/assets/svg/kick.svg";
           <p><label>Edad</label> : <span>{fighter?.age} años</span></p>
           <p><label>Peso</label> : <span>{fighter?.weight} Kg.</span></p>
           <div class="w-full flex items-center gap-x-5 my-4">
-            <div class="w-[60px] h-auto flex items-center">
+            <div class="w-[50px] h-auto flex items-center">
               <img
                 src={fighter?.flag}
                 alt={fighter?.country}
                 class="flex rounded-xs"
               />
             </div>
-            <span class="w-full text-base min-2xl:text-xl">{fighter?.city}</span>
+            <span class="w-full text-xs min-2xl:text-xl">{fighter?.city}</span>
           </div>
         </div>
 
         <!-- biobliografía -->
         <div
-          class="relative w-full min-h-[160px] bg-pink-400/50 border-2 text-white rounded-xl flex flex-col !p-4 !px-6"
+          class="relative w-full min-h-[150px] bg-pink-400/50 border text-white rounded-xl flex flex-col !p-4 !px-6"
         >
-          <p class="text-xs md:text-[14px] min-2xl:text-xl">{fighter?.bio}</p>
+          <p class="text-sm min-2xl:text-xl text-balance">{fighter?.bio}</p>
         </div>
 
         <!-- Redes Sociales -->
         <div class="relative w-full min-h-[80px] flex justify-center items-center">
           <div
-            class="relative w-[85%] h-[80px] text-white flex items-center justify-around rounded-xl z-20 opacity-100 gap-x-2"
+            class="relative w-[85%] h-[80px] text-white flex items-center justify-around rounded-xl z-40 gap-x-2"
           >
             {
               fighter?.socials.map((social, index) => (
-                <div class="w-[70px] h-[85px] flex flex-col items-center border-2 rounded-md bg-pink-500/50  hover:-translate-y-2 transition-all transition-duration-3 opacity-100">
+                <div class="w-[70px] h-[85px] flex flex-col items-center border rounded-md bg-pink-500/50  hover:-translate-y-2 transition-all transition-duration-3 opacity-100">
                   <a
                     href={social.url}
                     target="_blank"
@@ -148,10 +148,10 @@ import Kick from "@/assets/svg/kick.svg";
 
         <!-- combates -->
         <div
-          class="relative w-[90%] h-32 border-2 rounded-xl flex items-center justify-center gap-x-3 !mb-[10%] bg-pink-400/60"
+          class="relative w-[90%] h-32 lg:h-36 border-2 rounded-xl flex items-center justify-around gap-x-3 lg:gap-x-4 min-w-xl:gap-x-6 !mb-[10%] bg-pink-400/60"
         >
           <!-- Imagen luchador -->
-          <div class="w-20 h-auto">
+          <div class="w-14 lg:w-20 h-auto">
             <img
               src={fighter?.fighter}
               alt={fighter?.name}
@@ -159,20 +159,20 @@ import Kick from "@/assets/svg/kick.svg";
             />
           </div>
           <!-- imagen versus -->
-          <div class="w-28 h-auto">
+          <div class="w-14 lg:w-24 min-2xl:w-32 h-auto">
             <img
               src={fighter?.combat}
               alt="combate"
-              class="relative w-auto h-auto rounded-md z-10 rotate-x-15 -rotate-y-30"
+              class="relative w-auto h-auto rounded-md rotate-x-15 -rotate-y-30"
             />
           </div>
           <!-- Imagen contendiente -->
            <a href={`/luchador/${fighter?.versus}`}>
-             <div class="w-20 h-auto">
+             <div class="w-14 lg:w-20 h-auto hover:scale-110 transition-all">
                <img
                  src={fighter?.contender}
                  alt={fighter?.versus}
-                 class="relative w-auto h-auto rounded-xl z-0"
+                 class="relative w-auto h-auto rounded-xl"
                />
              </div>
            </a>
